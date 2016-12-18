@@ -1,0 +1,4 @@
+C:\_visual_studio_2015_projects\Apps\Apps.Locale\bin\Debug\Apps.Locale.dll
+C:\_visual_studio_2015_projects\Apps\Apps.Locale\bin\Debug\Apps.Locale.pdb
+C:\_visual_studio_2015_projects\Apps\Apps.Locale\obj\Debug\Apps.Locale.dll
+C:\_visual_studio_2015_projects\Apps\Apps.Locale\obj\Debug\Apps.Locale.pdb
