@@ -26,9 +26,9 @@ namespace Apps
             BundleTable.EnableOptimizations = false;
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //注入 Ioc
-            var container = new UnityContainer();
-            DependencyRegisterType.Container_Sys(ref container);
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            //var container = new UnityContainer();
+            //DependencyRegisterType.Container_Sys(ref container);
+            //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }
