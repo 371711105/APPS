@@ -12,6 +12,9 @@ using Apps.IBLL;
 using Apps.Models;
 using Apps.Models.Sys;
 using Microsoft.Practices.ServiceLocation;
+using Apps.IDAL;
+using Apps.DAL;
+using Microsoft.Practices.Unity.Mvc;
 
 namespace Apps
 {
@@ -26,9 +29,11 @@ namespace Apps
             BundleTable.EnableOptimizations = false;
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //注入 Ioc
-            //var container = new UnityContainer();
-            //DependencyRegisterType.Container_Sys(ref container);
-            //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            var container = new UnityContainer();
+            DependencyRegisterType.Container_Sys(ref container);
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+
         }
+
     }
 }
