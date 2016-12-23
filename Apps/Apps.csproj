@@ -616,11 +616,17 @@
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
     <Content Include="Scripts\jquery-1.11.3.min.map" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\jquery.form.min.js.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.easyui-1.4.5.js" />
     <Content Include="Scripts\jquery.easyui-1.4.5.min.js" />
     <Content Include="Scripts\jquery.easyui.mobile-1.4.5.js" />
     <Content Include="Scripts\jquery.easyui.mobile-1.4.5.min.js" />
+    <Content Include="Scripts\jquery.easyui.plus.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -663,9 +669,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -685,11 +688,12 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Index - 复制.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\SysSample\Index.cshtml" />
+    <Content Include="Views\Shared\_Index_Layout.cshtml" />
+    <Content Include="Views\Shared\_Index_LayoutEdit.cshtml" />
+    <Content Include="Views\SysSample\Create.cshtml" />
+    <Content Include="Views\SysSample\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -705,6 +709,10 @@
     <ProjectReference Include="..\Apps.BLL\Apps.BLL.csproj">
       <Project>{95b73c7d-e107-4365-8c9d-b8daa3a9a84a}</Project>
       <Name>Apps.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apps.Common\Apps.Common.csproj">
+      <Project>{da716fbc-2cb9-4d92-9027-913d1cf733e2}</Project>
+      <Name>Apps.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Apps.Core\Apps.Core.csproj">
       <Project>{1035f484-04a5-4c45-b176-74352e3dfde5}</Project>

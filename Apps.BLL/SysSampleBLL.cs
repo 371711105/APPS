@@ -30,17 +30,61 @@ namespace Apps.BLL
         /// <param name="pager">JQgrid分页</param>
         /// <param name="queryStr">搜索条件</param>
         /// <returns>列表</returns>
-        public List<SysSampleModel> GetList(string queryStr)
+        public List<SysSampleModel> GetList(ref GridPager pager)
         {
-
             IQueryable<SysSample> queryData = null;
+
             queryData = Rep.GetList(db);
-            return CreateModelList(ref queryData);
+
+            //排序
+            if (pager.order == "desc")
+            {
+                switch (pager.order)
+                {
+                    case "CreateTime":
+                        queryData = queryData.OrderByDescending(c => c.CreateTime);
+                        break;
+                    case "Name":
+                        queryData = queryData.OrderByDescending(c => c.Name);
+                        break;
+                    default:
+                        queryData = queryData.OrderByDescending(c => c.CreateTime);
+                        break;
+                }
+            }
+            else
+            {
+
+                switch (pager.order)
+                {
+                    case "CreateTime":
+                        queryData = queryData.OrderBy(c => c.CreateTime);
+                        break;
+                    case "Name":
+                        queryData = queryData.OrderBy(c => c.Name);
+                        break;
+                    default:
+                        queryData = queryData.OrderBy(c => c.CreateTime);
+                        break;
+                }
+            }
+            return CreateModelList(ref pager, ref queryData);
         }
-        private List<SysSampleModel> CreateModelList(ref IQueryable<SysSample> queryData)
+        private List<SysSampleModel> CreateModelList(ref GridPager pager, ref IQueryable<SysSample> queryData)
         {
 
-
+            pager.totalRows = queryData.Count();
+            if (pager.totalRows > 0)
+            {
+                if (pager.page <= 1)
+                {
+                    queryData = queryData.Take(pager.rows);
+                }
+                else
+                {
+                    queryData = queryData.Skip((pager.page - 1) * pager.rows).Take(pager.rows);
+                }
+            }
             List<SysSampleModel> modelList = (from r in queryData
                                               select new SysSampleModel
                                               {
@@ -56,6 +100,7 @@ namespace Apps.BLL
 
             return modelList;
         }
+
 
         /// <summary>
         /// 创建一个实体

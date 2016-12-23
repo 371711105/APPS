@@ -28,10 +28,19 @@ namespace Apps
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
-                       "~/Scripts/jquery.easyui-1.4.5.js"));
+                       "~/Scripts/jquery.easyui-1.4.5.js",
+                       "~/Scripts/jquery.easyui.plus.js"));
+
+            //jquery plus
+            bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
+                       "~/Scripts/jquery.form.js",
+                       "~/Scripts/jquery.validate.js",
+                       "~/Scripts/jquery.validate.unobtrusive.js",
+                       "~/Scripts/jquery.unobtrusive-ajax.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                        "~/Scripts/admin-page/home.js"));
-            
+
             //easyui
             bundles.Add(new StyleBundle("~/Content/themes/black/css").Include("~/Content/themes/black/easyui.css"));
             bundles.Add(new StyleBundle("~/Content/themes/bootstrap/css").Include("~/Content/themes/bootstrap/easyui.css"));

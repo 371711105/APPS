@@ -76,3 +76,5 @@ C:\_github\_My-Apps\APPS\Apps.Core\bin\Debug\zh-Hans\EntityFramework.resources.d
 C:\_github\_My-Apps\APPS\Apps.Core\obj\Debug\Apps.Core.csprojResolveAssemblyReference.cache
 C:\_github\_My-Apps\APPS\Apps.Core\obj\Debug\Apps.Core.dll
 C:\_github\_My-Apps\APPS\Apps.Core\obj\Debug\Apps.Core.pdb
+C:\_github\_My-Apps\APPS\Apps.Core\bin\Debug\Apps.Common.dll
+C:\_github\_My-Apps\APPS\Apps.Core\bin\Debug\Apps.Common.pdb

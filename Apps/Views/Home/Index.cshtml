@@ -1,78 +1,119 @@
-﻿@{
-    Layout = null;
-
+﻿@using Apps.Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
 }
-<!DOCTYPE html>
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+<div class="mvctool">
+    <input id="txtQuery" type="text" class="searchText">
+    <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
+    <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+</div>
+<table id="List"></table>
+<script type="text/javascript">
+    $(function () {
+        $('#List').datagrid({
+            url: '/SysSample/GetList',
+            width: $(window).width() - 10,
+            methord: 'post',
+            height: $(window).height() - 35,
+            fitColumns: true,
+            sortName: 'Id',
+            sortOrder: 'desc',
+            idField: 'Id',
+            pageSize: 15,
+            pageList: [15, 20, 30, 40, 50],
+            pagination: true,//是否启用分页
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            rownumbers: true,//行号
+            columns: [[
+                { field: 'Id', title: 'ID', width: 80 },
+                { field: 'Name', title: '名称', width: 120 },
+                { field: 'Age', title: '年龄', width: 80, align: 'right' },
+                { field: 'Bir', title: '生日', width: 80, align: 'right' },
+                { field: 'Photo', title: '照片', width: 250 },
+                { field: 'Note', title: '说明', width: 60, align: 'center' },
+                { field: 'CreateTime', title: '创建时间', width: 60, align: 'center' }
+            ]]
+        });
+    });
+</script>
+<script type="text/javascript">
 
-<html>
-<head>
-    <title>Index</title>
-    <meta name="viewport" content="width=device-width" />
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/easyui")
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/themes/default/css")
-    @Scripts.Render("~/bundles/home")
-</head>
-<body class="easyui-layout">
-    <div id="OverTimeLogin" class="easyui-dialog" data-options="closed:true,modal:true">
-        <iframe width="726px" scrolling="no" height="497px" frameborder="0" id="iOverTimeLogin"></iframe>
-    </div>
-    <div data-options="region:'north',border:false,split:true" style="height: 60px;">
-        <div class="define-head">
-            <div class="define-logo">
-                <div id="LoginTopLine">System Manage</div>
-                <div id="LoginBotoomLine">MVC4+EF5.0+EasyUI</div>
-            </div>
-            <div class="define-account">
+    //ifram 返回
+    function frameReturnByClose() {
+        $("#modalwindow").window('close');
+    }
+    //iframe 返回并刷新
+    function frameReturnByReload(flag) {
+        if (flag)
+            $("#List").datagrid('load');
+        else
+            $("#List").datagrid('reload');
+    }
+    //输出信息
+    function frameReturnByMes(mes) {
+        $.messageBox5s('提示', mes);
+    }
+    //生成唯一的GUID
+    function GetGuid() {
+        var s4 = function () {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        };
+        return s4() + s4() + s4() + "-" + s4();
+    }
+    $(function () {
 
-            </div>
-        </div>
-    </div>
-    <div data-options="region:'west',split:true,title:'菜单列表'" style="width: 200px; height:100%; padding-top: 2px; background-color:#fff; overflow:auto">
-        <div id="RightTree" style=" background-color:#fff;">
-            <div class="panel-loading">加载中...</div>
-        </div>
-    </div>
-    <div data-options="region:'south',border:false" style="height: 20px;">
-        <div class="define-bottom">
+        $("#btnCreate").click(function () {
+            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/SysSample/Create'></iframe>");
+            $("#modalwindow").window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' }).window('open');
+        });
+        $("#btnEdit").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/SysSample/Edit?id=" + row.Id + "&Ieguid=" + GetGuid() + "'></iframe>");
+                $("#modalwindow").window({ title: '编辑', width: 700, height: 430, iconCls: 'icon-edit' }).window('open');
+            } else { $.messageBox5s('提示', '请选择要操作的记录'); }
+        });
+        $("#btnDetails").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
 
+                $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0' src='/SysSample/Details?id=" + row.Id + "&Ieguid=" + GetGuid() + "'></iframe>");
+                $("#modalwindow").window({ title: '详细', width: 500, height: 300, iconCls: 'icon-details' }).window('open');
+            } else { $.messageBox5s('提示', '请选择要操作的记录'); }
+        });
+        $("#btnQuery").click(function () {
+            var queryStr = $("#txtQuery").val();
+            //如果查询条件为空默认查询全部
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+            $('#List').datagrid({
+                url: '/SysSample/GetList?queryStr=' + encodeURI(queryStr)
+            });
 
-        </div>
-    </div>
-    <div data-options="region:'center',border:false">
-        <div id="mainTab" class="easyui-tabs" data-options="fit:true">
-            <div title="我的桌面" data-options="closable:true" style="overflow: hidden; background:#fff">
-                <iframe scrolling="auto" frameborder="0" src="" style="width: 100%; height: 100%;"></iframe>
-            </div>
-        </div>
-    </div>
-    <div id="tab_menu" class="easyui-menu" style="width: 150px;">
-        <div id="tab_menu-tabrefresh" data-options="iconCls:'icon-reload'">
-            刷新
-        </div>
-        <div id="tab_menu-openFrame">
-            在新的窗体打开
-        </div>
-        <div id="tab_menu-tabcloseall">
-            关闭所有
-        </div>
-        <div id="tab_menu-tabcloseother">
-            关闭其他标签页
-        </div>
-        <div class="menu-sep">
-        </div>
-        <div id="tab_menu-tabcloseright">
-            关闭右边
-        </div>
-        <div id="tab_menu-tabcloseleft">
-            关闭左边
-        </div>
-        <div id="tab_menu-tabclose" data-options="iconCls:'icon-remove'">
-            关闭
-        </div>
-        <div id="menu" class="easyui-menu" style="width: 150px;">
-        </div>
-    </div>
-</body>
-</html>
+        });
+        $("#btnDelete").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $.messager.confirm('提示', '确定删除', function (r) {
+                    if (r) {
+                        $.post("/SysSample/Delete?id=" + row.Id, function (data) {
+                            if (data.type == 1)
+                                $("#List").datagrid('load');
+                            $.messageBox5s('提示', data.message);
+                        }, "json");
+
+                    }
+                });
+            } else { $.messageBox5s('提示', '请选择要操作的记录'); }
+        });
+    });
+</script>
