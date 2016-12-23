@@ -2,3 +2,7 @@ C:\_visual_studio_2015_projects\Apps\Apps.WebApi\bin\Debug\Apps.WebApi.dll
 C:\_visual_studio_2015_projects\Apps\Apps.WebApi\bin\Debug\Apps.WebApi.pdb
 C:\_visual_studio_2015_projects\Apps\Apps.WebApi\obj\Debug\Apps.WebApi.dll
 C:\_visual_studio_2015_projects\Apps\Apps.WebApi\obj\Debug\Apps.WebApi.pdb
+C:\_github\_My-Apps\APPS\Apps.WebApi\bin\Debug\Apps.WebApi.dll
+C:\_github\_My-Apps\APPS\Apps.WebApi\bin\Debug\Apps.WebApi.pdb
+C:\_github\_My-Apps\APPS\Apps.WebApi\obj\Debug\Apps.WebApi.dll
+C:\_github\_My-Apps\APPS\Apps.WebApi\obj\Debug\Apps.WebApi.pdb

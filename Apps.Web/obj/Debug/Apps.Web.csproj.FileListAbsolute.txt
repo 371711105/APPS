@@ -11,3 +11,16 @@ C:\_visual_studio_2015_projects\Apps\Apps.Web\bin\Debug\Microsoft.Practices.Unit
 C:\_visual_studio_2015_projects\Apps\Apps.Web\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
 C:\_visual_studio_2015_projects\Apps\Apps.Web\obj\Debug\Apps.Web.dll
 C:\_visual_studio_2015_projects\Apps\Apps.Web\obj\Debug\Apps.Web.pdb
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Apps.Web.dll
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Apps.Web.pdb
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.Unity.dll
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.Unity.xml
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\_github\_My-Apps\APPS\Apps.Web\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\_github\_My-Apps\APPS\Apps.Web\obj\Debug\Apps.Web.dll
+C:\_github\_My-Apps\APPS\Apps.Web\obj\Debug\Apps.Web.pdb

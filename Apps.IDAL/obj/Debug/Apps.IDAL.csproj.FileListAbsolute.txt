@@ -12,3 +12,17 @@ C:\_visual_studio_2015_projects\Apps\Apps.IDAL\bin\Debug\zh-Hans\EntityFramework
 C:\_visual_studio_2015_projects\Apps\Apps.IDAL\obj\Debug\Apps.IDAL.csprojResolveAssemblyReference.cache
 C:\_visual_studio_2015_projects\Apps\Apps.IDAL\obj\Debug\Apps.IDAL.dll
 C:\_visual_studio_2015_projects\Apps\Apps.IDAL\obj\Debug\Apps.IDAL.pdb
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\Apps.IDAL.dll.config
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\Apps.IDAL.dll
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\Apps.IDAL.pdb
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\Apps.Models.dll
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\EntityFramework.dll
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\Apps.Models.pdb
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\EntityFramework.xml
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\_github\_My-Apps\APPS\Apps.IDAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\_github\_My-Apps\APPS\Apps.IDAL\obj\Debug\Apps.IDAL.csprojResolveAssemblyReference.cache
+C:\_github\_My-Apps\APPS\Apps.IDAL\obj\Debug\Apps.IDAL.dll
+C:\_github\_My-Apps\APPS\Apps.IDAL\obj\Debug\Apps.IDAL.pdb

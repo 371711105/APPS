@@ -2,3 +2,7 @@ C:\_visual_studio_2015_projects\Apps\Apps.Jobs\bin\Debug\Apps.Jobs.dll
 C:\_visual_studio_2015_projects\Apps\Apps.Jobs\bin\Debug\Apps.Jobs.pdb
 C:\_visual_studio_2015_projects\Apps\Apps.Jobs\obj\Debug\Apps.Jobs.dll
 C:\_visual_studio_2015_projects\Apps\Apps.Jobs\obj\Debug\Apps.Jobs.pdb
+C:\_github\_My-Apps\APPS\Apps.Jobs\bin\Debug\Apps.Jobs.dll
+C:\_github\_My-Apps\APPS\Apps.Jobs\bin\Debug\Apps.Jobs.pdb
+C:\_github\_My-Apps\APPS\Apps.Jobs\obj\Debug\Apps.Jobs.dll
+C:\_github\_My-Apps\APPS\Apps.Jobs\obj\Debug\Apps.Jobs.pdb
