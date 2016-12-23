@@ -1,8 +1,0 @@
-C:\_visual_studio_2015_projects\Apps\Apps.Common\bin\Debug\Apps.Common.dll
-C:\_visual_studio_2015_projects\Apps\Apps.Common\bin\Debug\Apps.Common.pdb
-C:\_visual_studio_2015_projects\Apps\Apps.Common\obj\Debug\Apps.Common.dll
-C:\_visual_studio_2015_projects\Apps\Apps.Common\obj\Debug\Apps.Common.pdb
-C:\_github\_My-Apps\APPS\Apps.Common\bin\Debug\Apps.Common.dll
-C:\_github\_My-Apps\APPS\Apps.Common\bin\Debug\Apps.Common.pdb
-C:\_github\_My-Apps\APPS\Apps.Common\obj\Debug\Apps.Common.dll
-C:\_github\_My-Apps\APPS\Apps.Common\obj\Debug\Apps.Common.pdb
