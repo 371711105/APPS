@@ -135,7 +135,6 @@ $(function () {
     }
     $.post("/Home/GetTree", { "id": "0" },
         function (data) {
-            debugger;
             if (data == "0") {
                 window.location = "/Account";
             }

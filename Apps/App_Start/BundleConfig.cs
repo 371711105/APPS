@@ -28,7 +28,7 @@ namespace Apps
             //          "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/site.css",
-                      "~/Content/wdtree/tree/css/tree.css"));
+                      "~/Content/tree/css/tree.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                        "~/Scripts/jquery.easyui-1.4.5.js",
@@ -40,7 +40,7 @@ namespace Apps
                        "~/Scripts/jquery.validate.js",
                        "~/Scripts/jquery.validate.unobtrusive.js",
                        "~/Scripts/jquery.unobtrusive-ajax.js",
-                       "~/Scripts/wdtree/jquery.tree.js"));
+                       "~/Scripts/jquery.tree.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                        "~/Scripts/admin-page/home.js"));
