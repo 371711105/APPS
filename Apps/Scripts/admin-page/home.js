@@ -99,7 +99,7 @@ function addTab(subtitle, url, icon) {
         $("#mainTab").tabs('select', subtitle);
         $("#tab_menu-tabrefresh").trigger("click");
     }
-    $(".layout-button-left").trigger("click");
+    //$(".layout-button-left").trigger("click");
     //tabClose();
 }
 function createFrame(url) {
@@ -122,6 +122,7 @@ $(function () {
         showcheck: false,
         url: "/Home/GetTree",
         onnodeclick: function (item) {
+            debugger;
             var tabTitle = item.text;
             var url = "../../" + item.value;
             var icon = item.Icon;
