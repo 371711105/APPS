@@ -2,7 +2,11 @@
     ViewBag.Title = "Index";
     Layout = null;
 }
-<script src="~/Scripts/jquery.easyui.plus.js"></script>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/easyui")
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/themes/default/css")
+@Scripts.Render("~/bundles/jquery/plus")
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText" />
     <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>

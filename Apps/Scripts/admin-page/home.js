@@ -1,6 +1,28 @@
-﻿$(function () {
+﻿
+function addTab(subtitle, url, icon) {
+    if (!$("#mainTab").tabs('exists', subtitle)) {
+        $("#mainTab").tabs('add', {
+            title: subtitle,
+            content: createFrame(url),
+            closable: true,
+            icon: icon
+        });
+    } else {
+        $("#mainTab").tabs('select', subtitle);
+        $("#tab_menu-tabrefresh").trigger("click");
+    }
+    //$(".layout-button-left").trigger("click");
+    //tabClose();
+}
+//创建新的分窗口
+function createFrame(url) {
+    var s = '<iframe frameborder="0" src="' + url + '" scrolling="auto" style="width:100%; height:99%"></iframe>';
+    return s;
+}
+
+$(function () {
+    /*重新设置该标签 */
     $('#tab_menu-tabrefresh').click(function () {
-        /*重新设置该标签 */
         var url = $(".tabs-panels .panel").eq($('.tabs-selected').index()).find("iframe").attr("src");
         $(".tabs-panels .panel").eq($('.tabs-selected').index()).find("iframe").attr("src", url);
     });
@@ -71,9 +93,6 @@
         });
         return false;
     });
-
-});
-$(function () {
     /*为选项卡绑定右键*/
     $(".tabs li").on('contextmenu', function (e) {
         /*选中当前触发事件的选项卡 */
@@ -86,27 +105,7 @@ $(function () {
         });
         return false;
     });
-});
-function addTab(subtitle, url, icon) {
-    if (!$("#mainTab").tabs('exists', subtitle)) {
-        $("#mainTab").tabs('add', {
-            title: subtitle,
-            content: createFrame(url),
-            closable: true,
-            icon: icon
-        });
-    } else {
-        $("#mainTab").tabs('select', subtitle);
-        $("#tab_menu-tabrefresh").trigger("click");
-    }
-    //$(".layout-button-left").trigger("click");
-    //tabClose();
-}
-function createFrame(url) {
-    var s = '<iframe frameborder="0" src="' + url + '" scrolling="auto" style="width:100%; height:99%"></iframe>';
-    return s;
-}
-$(function () {
+
     $(".ui-skin-nav .li-skinitem span").click(function () {
         var theme = $(this).attr("rel");
         $.messager.confirm('提示', '切换皮肤将重新加载系统！', function (r) {
@@ -115,9 +114,8 @@ $(function () {
             }
         });
     });
-});
-$(function () {
 
+    //获取菜单
     var o = {
         showcheck: false,
         url: "/Home/GetTree",
