@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="DB.SysModule" Width="1.5" PointX="3.375" PointY="0.75" />
         <AssociationConnector Association="DB.FK_SysModule_SysModule" />
         <EntityTypeShape EntityType="DB.SysLog" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="DB.SysException" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

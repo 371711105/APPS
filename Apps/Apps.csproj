@@ -197,6 +197,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SysExceptionController.cs" />
     <Compile Include="Controllers\SysLogController.cs" />
     <Compile Include="Controllers\SysSampleController.cs" />
     <Compile Include="Global.asax.cs">
@@ -765,6 +766,8 @@
     <Content Include="Views\SysSample\Edit.cshtml" />
     <Content Include="Views\SysLog\index.cshtml" />
     <Content Include="Views\SysLog\Details.cshtml" />
+    <Content Include="Views\SysException\Index.cshtml" />
+    <Content Include="Views\SysException\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
