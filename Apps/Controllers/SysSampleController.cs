@@ -13,7 +13,7 @@ using Apps.Core;
 
 namespace Apps.Controllers
 {
-    public class SysSampleController : Controller
+    public class SysSampleController : BaseController
     {
         ValidationErrors errors = new ValidationErrors();
 

@@ -97,3 +97,4 @@ C:\_github\_My-Apps\APPS\UnityDemo\bin\zh-Hans\Microsoft.Owin.Security.Twitter.r
 C:\_github\_My-Apps\APPS\UnityDemo\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\_github\_My-Apps\APPS\UnityDemo\obj\Debug\UnityDemo.dll
 C:\_github\_My-Apps\APPS\UnityDemo\obj\Debug\UnityDemo.pdb
+C:\_github\_My-Apps\APPS\UnityDemo\obj\Debug\UnityDemo.csprojResolveAssemblyReference.cache
