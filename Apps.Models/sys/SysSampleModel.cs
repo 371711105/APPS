@@ -7,6 +7,7 @@
 * 电子邮箱：371711105@qq.com
 */
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 namespace Apps.Models.Sys

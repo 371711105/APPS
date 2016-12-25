@@ -12,10 +12,9 @@ using System.Linq;
 using Microsoft.Practices.Unity;
 using Apps.Models;
 using Apps.Common;
-using Apps.Models.Sys;
 using Apps.IBLL;
 using Apps.IDAL;
-
+using Apps.Models.Sys;
 
 namespace Apps.BLL
 {
@@ -141,6 +140,7 @@ namespace Apps.BLL
                 return false;
             }
         }
+
         /// <summary>
         /// 删除一个实体
         /// </summary>

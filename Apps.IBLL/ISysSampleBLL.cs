@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using Apps.Models.Sys;
 using Apps.Common;
+using Apps.Models;
+using Apps.Models.sys;
 
 namespace Apps.IBLL
 {
-
     public interface ISysSampleBLL
     {
         /// <summary>
