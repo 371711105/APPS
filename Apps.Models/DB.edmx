@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SysException">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HelpLink" Type="varchar" MaxLength="500" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Source" Type="varchar" MaxLength="500" />
+          <Property Name="StackTrace" Type="text" />
+          <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+          <Property Name="Data" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="SysLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -60,6 +73,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBStoreContainer">
+          <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysModule" EntityType="Self.SysModule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysSample" EntityType="Self.SysSample" Schema="dbo" store:Type="Tables" />
@@ -80,6 +94,7 @@
             <End Role="SysModule1" EntitySet="SysModule" />
           </AssociationSet>
           <EntitySet Name="SysLog" EntityType="DB.SysLog" />
+          <EntitySet Name="SysException" EntityType="DB.SysException" />
         </EntityContainer>
         <EntityType Name="SysSample">
           <Key>
@@ -137,6 +152,19 @@
           <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="SysException">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -186,6 +214,20 @@
                 <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="Message" ColumnName="Message" />
                 <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysException">
+            <EntityTypeMapping TypeName="DB.SysException">
+              <MappingFragment StoreEntitySet="SysException">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
