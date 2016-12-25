@@ -6,8 +6,11 @@ using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
 using System.Reflection;
 using System.Text;
+=======
+>>>>>>> 89205d3ab3c49253cea62226ac97a1ce2aa818f8
 using System.Web;
 using System.Web.Mvc;
 
@@ -72,6 +75,7 @@ namespace Apps.Controllers
         }
 
         #endregion
+<<<<<<< HEAD
 
         public ActionResult Error()
         {
@@ -399,5 +403,7 @@ namespace Apps.Controllers
             }
         }
         #endregion
+=======
+>>>>>>> 89205d3ab3c49253cea62226ac97a1ce2aa818f8
     }
 }
