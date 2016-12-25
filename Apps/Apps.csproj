@@ -197,6 +197,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SysLogController.cs" />
     <Compile Include="Controllers\SysSampleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -762,6 +763,8 @@
     <Content Include="Views\Shared\_Index_LayoutEdit.cshtml" />
     <Content Include="Views\SysSample\Create.cshtml" />
     <Content Include="Views\SysSample\Edit.cshtml" />
+    <Content Include="Views\SysLog\index.cshtml" />
+    <Content Include="Views\SysLog\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

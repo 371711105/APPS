@@ -27,5 +27,6 @@ namespace Apps.Models
     
         public virtual DbSet<SysSample> SysSample { get; set; }
         public virtual DbSet<SysModule> SysModule { get; set; }
+        public virtual DbSet<SysLog> SysLog { get; set; }
     }
 }

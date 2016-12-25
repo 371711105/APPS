@@ -17,7 +17,6 @@ C:\_visual_studio_2015_projects\Apps\Apps.DAL\bin\Debug\zh-Hans\EntityFramework.
 C:\_visual_studio_2015_projects\Apps\Apps.DAL\obj\Debug\Apps.DAL.csprojResolveAssemblyReference.cache
 C:\_visual_studio_2015_projects\Apps\Apps.DAL\obj\Debug\Apps.DAL.dll
 C:\_visual_studio_2015_projects\Apps\Apps.DAL\obj\Debug\Apps.DAL.pdb
-C:\_github\_My-Apps\APPS\Apps.DAL\obj\Debug\Apps.DAL.csprojResolveAssemblyReference.cache
 C:\_github\_My-Apps\APPS\Apps.DAL\bin\Debug\Apps.DAL.dll.config
 C:\_github\_My-Apps\APPS\Apps.DAL\bin\Debug\Apps.DAL.dll
 C:\_github\_My-Apps\APPS\Apps.DAL\bin\Debug\Apps.DAL.pdb
@@ -34,5 +33,6 @@ C:\_github\_My-Apps\APPS\Apps.DAL\bin\Debug\Microsoft.Practices.ServiceLocation.
 C:\_github\_My-Apps\APPS\Apps.DAL\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\_github\_My-Apps\APPS\Apps.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 C:\_github\_My-Apps\APPS\Apps.DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\_github\_My-Apps\APPS\Apps.DAL\obj\Debug\Apps.DAL.csprojResolveAssemblyReference.cache
 C:\_github\_My-Apps\APPS\Apps.DAL\obj\Debug\Apps.DAL.dll
 C:\_github\_My-Apps\APPS\Apps.DAL\obj\Debug\Apps.DAL.pdb

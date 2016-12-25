@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apps.Models.sys;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,7 @@ namespace Apps.Controllers
     {
         // GET: Account
         public ActionResult Index()
-        {
+        {            
             return View();
         }
     }

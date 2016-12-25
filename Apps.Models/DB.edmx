@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SysLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Operator" Type="varchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Result" Type="varchar" MaxLength="20" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Module" Type="varchar" MaxLength="20" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="SysModule">
           <Key>
             <PropertyRef Name="Id" />
@@ -48,6 +60,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBStoreContainer">
+          <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysModule" EntityType="Self.SysModule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysSample" EntityType="Self.SysSample" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_SysModule_SysModule" Association="Self.FK_SysModule_SysModule">
@@ -66,6 +79,7 @@
             <End Role="SysModule" EntitySet="SysModule" />
             <End Role="SysModule1" EntitySet="SysModule" />
           </AssociationSet>
+          <EntitySet Name="SysLog" EntityType="DB.SysLog" />
         </EntityContainer>
         <EntityType Name="SysSample">
           <Key>
@@ -111,6 +125,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SysLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -147,6 +173,19 @@
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />
                 <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysLog">
+            <EntityTypeMapping TypeName="DB.SysLog">
+              <MappingFragment StoreEntitySet="SysLog">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
