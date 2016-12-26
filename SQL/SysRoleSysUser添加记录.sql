@@ -1,0 +1,1 @@
+﻿INSERT INTO [SysRoleSysUser] ([SysUserId],[SysRoleId]) values ('admin','administrator')

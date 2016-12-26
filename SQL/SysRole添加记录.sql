@@ -1,0 +1,1 @@
+﻿INSERT INTO [SysRole] ([Id],[Name],[Description],[CreateTime],[CreatePerson]) values ('administrator','超级管理员','全部授权','10  1 2012 12:00AM','Administrator')
