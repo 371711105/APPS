@@ -134,7 +134,11 @@
                             <td style="width: 80px; text-align: right">
                                 验证码：
                             </td>
-                            <td></td>
+                            <td>
+                                <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
+                                <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="~/Verify/GetVerifyCode" onclick="this.src=this.src+'?'" />
+                                <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
+                            </td>
                         </tr>
 
 

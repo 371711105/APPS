@@ -200,8 +200,13 @@
     <Compile Include="Controllers\SysExceptionController.cs" />
     <Compile Include="Controllers\SysLogController.cs" />
     <Compile Include="Controllers\SysSampleController.cs" />
+    <Compile Include="Controllers\VerifyController.cs" />
     <Compile Include="Core\BaseController.cs" />
     <Compile Include="Core\ExtendMvcHtml.cs" />
+    <Compile Include="Core\ValidateCode.cs" />
+    <Compile Include="Core\verify_code.ashx.cs">
+      <DependentUpon>verify_code.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Core\LogHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -616,6 +621,7 @@
     <Content Include="Content\Images\Logo.psd" />
     <Content Include="Content\Images\sunny\Logo.psd" />
     <Content Include="Content\Images\sunny\未标题-1.psd" />
+    <Content Include="Core\verify_code.ashx" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\easyloader.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
@@ -776,6 +782,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Verify\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
