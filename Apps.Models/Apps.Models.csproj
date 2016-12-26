@@ -91,7 +91,22 @@
     <Compile Include="SysModule.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="SysModuleOperate.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysRight.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysRightOperate.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysRole.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="SysSample.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysUser.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="sys\AccountModel.cs" />

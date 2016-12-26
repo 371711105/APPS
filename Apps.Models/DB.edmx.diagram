@@ -10,6 +10,16 @@
         <AssociationConnector Association="DB.FK_SysModule_SysModule" />
         <EntityTypeShape EntityType="DB.SysLog" Width="1.5" PointX="0.75" PointY="3.625" />
         <EntityTypeShape EntityType="DB.SysException" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB.SysModuleOperate" Width="1.5" PointX="5.625" PointY="19.625" />
+        <EntityTypeShape EntityType="DB.SysRight" Width="1.5" PointX="5.625" PointY="5.5" />
+        <EntityTypeShape EntityType="DB.SysRightOperate" Width="1.5" PointX="7.875" PointY="5.75" />
+        <EntityTypeShape EntityType="DB.SysRole" Width="1.5" PointX="3.375" PointY="10.375" />
+        <EntityTypeShape EntityType="DB.SysUser" Width="1.5" PointX="5.625" PointY="10.875" />
+        <AssociationConnector Association="DB.FK_SysModuleOperate_SysModule" />
+        <AssociationConnector Association="DB.FK_SysRight_SysModule" />
+        <AssociationConnector Association="DB.FK_SysRight_SysRole" />
+        <AssociationConnector Association="DB.FK_SysRightOperate_SysRight" />
+        <AssociationConnector Association="DB.SysRoleSysUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -18,6 +18,8 @@ namespace Apps.Models
         public SysModule()
         {
             this.SysModule1 = new HashSet<SysModule>();
+            this.SysModuleOperate = new HashSet<SysModuleOperate>();
+            this.SysRight = new HashSet<SysRight>();
         }
     
         public string Id { get; set; }
@@ -37,5 +39,9 @@ namespace Apps.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SysModule> SysModule1 { get; set; }
         public virtual SysModule SysModule2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SysModuleOperate> SysModuleOperate { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SysRight> SysRight { get; set; }
     }
 }
