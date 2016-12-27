@@ -58,11 +58,16 @@ namespace Apps.Controllers
         }
 
         #region 创建
+        [SupportFilter]
         public ActionResult Create()
         {
             return View();
         }
-
+        [SupportFilter]
+        public ActionResult Test()
+        {
+            return View();
+        }
         //[HttpPost]
         //public JsonResult Create(SysSampleModel model)
         //{

@@ -2,7 +2,6 @@
 using Apps.Models.Sys;
 using Apps.Common;
 using Apps.Models;
-using Apps.Models.sys;
 
 namespace Apps.IBLL
 {

@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Apps.Models.sys
+namespace Apps.Models.Sys
 {
     public class SysLogModel
     {

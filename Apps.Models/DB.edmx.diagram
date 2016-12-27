@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="90877956dad84105ad1dad3b5fde1e49" Name="Diagram1" >
+      <Diagram DiagramId="90877956dad84105ad1dad3b5fde1e49" Name="Diagram1" ZoomLevel="94" >
         <EntityTypeShape EntityType="DB.SysSample" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DB.SysModule" Width="1.5" PointX="3.375" PointY="0.75" />
         <AssociationConnector Association="DB.FK_SysModule_SysModule" />

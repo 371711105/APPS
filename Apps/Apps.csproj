@@ -202,6 +202,7 @@
     <Compile Include="Controllers\VerifyController.cs" />
     <Compile Include="Core\BaseController.cs" />
     <Compile Include="Core\ExtendMvcHtml.cs" />
+    <Compile Include="Core\SupportFilter.cs" />
     <Compile Include="Core\ValidateCode.cs" />
     <Compile Include="Core\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
