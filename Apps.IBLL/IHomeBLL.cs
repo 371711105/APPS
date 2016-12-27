@@ -1,6 +1,4 @@
-﻿
-using Apps.Models;
-/**
+﻿/**
 * 命名空间: Apps.IBLL
 * 功 能： N/A
 * 类 名： IHomeBLL
@@ -13,11 +11,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Apps.Models;
 
 namespace Apps.IBLL
 {
     public interface IHomeBLL
-    {
-        List<SysModule> GetMenuByPersonId(string moduleId);
+    {        
+        List<SysModule> GetMenuByPersonId(string personId, string moduleId);
     }
 }
