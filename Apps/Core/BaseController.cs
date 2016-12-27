@@ -12,6 +12,18 @@ namespace Apps.Core
     public class BaseController : Controller
     {
         /// <summary>
+        /// 获取当前页或操作访问权限
+        /// </summary>
+        /// <returns>权限列表</returns>
+        public List<PermModel> GetPermission()
+        {
+            string filePath = HttpContext.Request.FilePath;
+
+            List<PermModel> perm = (List<PermModel>)Session[filePath];
+            return perm;
+        }
+
+        /// <summary>
         /// 获取当前用户Id
         /// </summary>
         /// <returns></returns>
