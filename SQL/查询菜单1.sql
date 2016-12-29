@@ -1,0 +1,1 @@
+﻿select * from sysmodule where ParentId = '0'
