@@ -3,7 +3,7 @@
 @using Apps.Core;
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    Layout = "~/Views/Shared/part_layout.cshtml";
 
     List<PermModel> perm = (List<PermModel>)ViewBag.Perm;
     if (perm == null)

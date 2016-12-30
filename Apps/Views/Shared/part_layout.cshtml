@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Main</title>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/default/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/easyui")
+    @Scripts.Render("~/bundles/jquery/plus")
+    @Scripts.Render("~/bundles/home")
+</head>
+<body>
+    <div style="padding:5px 5px 0px 5px;">
+        @RenderBody()
+    </div>
+</body>
+</html>

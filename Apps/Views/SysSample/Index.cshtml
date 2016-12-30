@@ -1,19 +1,36 @@
 ﻿@using Apps.Common;
+@using Apps.Core;
+@using Apps.Models.Sys;
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    Layout = "~/Views/Shared/part_layout.cshtml";
+    List<PermModel> perm = (List<PermModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<PermModel>();
+    }
 }
 <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
 <div class="mvctool">
-    @*<input id="txtQuery" type="text" class="searchText">
-        <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
-        <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
-        <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>*@
+    <input id="txtQuery" type="text" class="searchText" />
+    @Html.ToolButton("btnQuery", "icon-search", "查询", perm, "Query", true)
+    @Html.ToolButton("btnCreate", "icon-add", "新增", perm, "Create", true)
+    @Html.ToolButton("btnEdit", "icon-edit", "编辑", perm, "Edit", true)
+    @Html.ToolButton("btnDetails", "icon-details", "详细", perm, "Details", true)
+    @Html.ToolButton("btnDelete", "icon-remove", "删除", perm, "Delete", true)
+    @Html.ToolButton("btnAllot", "icon-share", "分配用户", perm, "Allot", true)
+
 </div>
+@*<div class="mvctool">
+        <input id="txtQuery" type="text" class="searchText">
+            <a id="btnQuery" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
+            <a id="btnCreate" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
+            <a id="btnEdit" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
+            <a id="btnDetails" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
+            <a id="btnDelete" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
+            <a id="btnExport" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
+            <a id="btnReload" style="float: left;" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+    </div>*@
 <table id="List"></table>
 <script type="text/javascript">
     $(function () {

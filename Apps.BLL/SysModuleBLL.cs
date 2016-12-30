@@ -31,7 +31,7 @@ namespace Apps.BLL
         public List<SysModuleModel> GetList(string parentId)
         {
             IQueryable<SysModule> queryData = null;
-            queryData = m_Rep.GetList(db).Where(a => a.ParentId == parentId).OrderBy(a => a.Sort);
+            queryData = m_Rep.GetList(db).Where(a => a.ParentId == parentId && a.Id != "0").OrderBy(a => a.Sort);
             return CreateModelList(ref queryData);
         }
         private List<SysModuleModel> CreateModelList(ref IQueryable<SysModule> queryData)
