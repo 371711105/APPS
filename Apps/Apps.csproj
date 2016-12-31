@@ -769,7 +769,7 @@
     <Content Include="Views\SysModule\Edit.cshtml" />
     <Content Include="Views\SysModule\Create.cshtml" />
     <Content Include="Views\SysModule\CreateOpt.cshtml" />
-    <Content Include="Views\Shared\part_layout.cshtml" />
+    <Content Include="Views\Shared\_Part_Layout.cshtml" />
     <Content Include="Views\SysRole\Index.cshtml" />
     <Content Include="Views\Shared\_Partial_AutoGrid.cshtml" />
     <Content Include="Views\SysRole\Edit.cshtml" />
