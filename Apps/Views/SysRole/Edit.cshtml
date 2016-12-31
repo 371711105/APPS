@@ -71,12 +71,39 @@
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.UserName)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.UserName)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.Flag)：
                 </td>
                 <td style="width:310px">
                     @Html.EditorFor(model => model.Flag)
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.Flag)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CreateTime)：
+                </td>
+                <td style="width:310px">
+                    @Html.DisplayFor(model => model.CreateTime)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CreateTime)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.CreatePerson)：
+                </td>
+                <td style="width:310px">
+                    @Html.DisplayFor(model => model.CreatePerson)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CreatePerson)</td>
             </tr>
         </tbody>
     </table>

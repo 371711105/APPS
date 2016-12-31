@@ -1,4 +1,5 @@
-﻿@model Apps.Models.Sys.SysModuleModel
+﻿@model Apps.Models.Sys.SysRoleModel
+@using Apps.Common;
 @using Apps.Models.Sys;
 @using Apps.Core;
 @{
@@ -14,6 +15,7 @@
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
+            debugger;
             if ($("form").valid()) {
                 $.ajax({
                     url: "@Url.Action("Create")",
@@ -45,8 +47,9 @@
 </div>
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.Id)
+    @*@Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.CreateTime)
+    @Html.HiddenFor(model => model.CreatePerson)*@
     <table class="fromEditTable setTextWidth300">
         <tbody>
             <tr>
@@ -67,72 +70,51 @@
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.Name)</td>
             </tr>
-
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.ParentId)：
+                    @Html.LabelFor(model => model.Description)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.ParentId)
+                    @Html.EditorFor(model => model.Description)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.ParentId)</td>
+                <td>@Html.ValidationMessageFor(model => model.Description)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Url)：
+                    @Html.LabelFor(model => model.UserName)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Url)
+                    @Html.EditorFor(model => model.UserName)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Url)</td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Iconic)：
+                    @Html.LabelFor(model => model.Flag)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Iconic)
+                    @Html.EditorFor(model => model.Flag)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Iconic)</td>
+                <td>@Html.ValidationMessageFor(model => model.Flag)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Sort)：
+                    @Html.LabelFor(model => model.CreateTime)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Sort)
+                    @Html.TextBoxFor(model => model.CreateTime)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Sort)</td>
+                <td>@Html.ValidationMessageFor(model => model.CreateTime)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Remark)：
+                    @Html.LabelFor(model => model.CreatePerson)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Remark)
+                    @Html.EditorFor(model => model.CreatePerson)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Remark)</td>
+                <td>@Html.ValidationMessageFor(model => model.CreatePerson)</td>
             </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Enable)：
-                </td>
-                <td style="width:310px">
-                    @Html.CheckBoxFor(model => model.Enable, new { @checked = true })
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.Enable)</td>
-            </tr>
-
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.IsLast)：
-                </td>
-                <td style="width:310px">
-                    @Html.CheckBoxFor(model => model.IsLast, new { @checked = true })
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.IsLast)</td>
-            </tr>
-
         </tbody>
     </table>
 }

@@ -55,7 +55,8 @@ namespace Apps.BLL
                     Description = r.Description,
                     CreateTime = r.CreateTime,
                     CreatePerson = r.CreatePerson,
-                    UserName = ""
+                    UserName = r.UserName,
+                    Flag = r.Flag
                 });
             }
             return modelList;
@@ -77,6 +78,8 @@ namespace Apps.BLL
                 entity.Description = model.Description;
                 entity.CreateTime = model.CreateTime;
                 entity.CreatePerson = model.CreatePerson;
+                entity.Flag = model.Flag;
+                entity.UserName = model.UserName;
                 if (m_Rep.Create(entity) == 1)
                 {
                     //分配给角色
@@ -136,6 +139,8 @@ namespace Apps.BLL
                 entity.Description = model.Description;
                 entity.CreateTime = model.CreateTime;
                 entity.CreatePerson = model.CreatePerson;
+                entity.UserName = model.UserName;
+                entity.Flag = model.Flag;
 
                 if (m_Rep.Edit(entity) == 1)
                 {
@@ -175,6 +180,8 @@ namespace Apps.BLL
                 model.Description = entity.Description;
                 model.CreateTime = entity.CreateTime;
                 model.CreatePerson = entity.CreatePerson;
+                model.UserName = entity.UserName;
+                model.Flag = entity.Flag;
                 return model;
             }
             else

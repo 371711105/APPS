@@ -772,6 +772,8 @@
     <Content Include="Views\SysRole\Index.cshtml" />
     <Content Include="Views\Shared\_Partial_AutoGrid.cshtml" />
     <Content Include="Views\SysRole\Edit.cshtml" />
+    <Content Include="Views\SysRole\Details.cshtml" />
+    <Content Include="Views\SysRole\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

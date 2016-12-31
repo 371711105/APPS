@@ -25,6 +25,7 @@ namespace Apps.Models.Sys
         [Display(Name = "说明")]
         public string Description { get; set; }
         [Display(Name = "创建时间")]
+        [Required(AllowEmptyStrings = true)]
         public DateTime CreateTime { get; set; }
         [Display(Name = "创建人")]
         public string CreatePerson { get; set; }

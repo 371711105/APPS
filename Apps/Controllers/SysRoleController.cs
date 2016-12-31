@@ -66,6 +66,7 @@ namespace Apps.Controllers
         {
             model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
+            model.CreatePerson = "Administrator";
             if (model != null && ModelState.IsValid)
             {
 

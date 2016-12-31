@@ -86,6 +86,8 @@
           <Property Name="Description" Type="varchar" MaxLength="4000" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="CreatePerson" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Flag" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="SysRoleSysUser">
           <Key>
@@ -414,6 +416,8 @@
           <Property Name="CreatePerson" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SysRight" Relationship="DB.FK_SysRight_SysRole" FromRole="SysRole" ToRole="SysRight" />
           <NavigationProperty Name="SysUser" Relationship="DB.SysRoleSysUser" FromRole="SysRole" ToRole="SysUser" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SysUser">
           <Key>
@@ -635,6 +639,8 @@
           <EntitySetMapping Name="SysRole">
             <EntityTypeMapping TypeName="DB.SysRole">
               <MappingFragment StoreEntitySet="SysRole">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

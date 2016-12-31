@@ -1,8 +1,9 @@
-﻿@model Apps.Models.Sys.SysModuleModel
+﻿@model Apps.Models.Sys.SysRoleModel
+@using Apps.Common;
 @using Apps.Models.Sys;
 @using Apps.Core;
 @{
-    ViewBag.Title = "创建";
+    ViewBag.Title = "修改";
     Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
     List<PermModel> perm = (List<PermModel>)ViewBag.Perm;
     if (perm == null)
@@ -16,7 +17,7 @@
         $("#btnSave").click(function () {
             if ($("form").valid()) {
                 $.ajax({
-                    url: "@Url.Action("Create")",
+                    url: "@Url.Action("Edit")",
                     type: "Post",
                     data: $("form").serialize(),
                     dataType: "json",
@@ -40,99 +41,70 @@
     });
 </script>
 <div class="mvctool bgb">
-    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @*@Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)*@
     @Html.ToolButton("btnReturn", "icon-return", "返回", false)
 </div>
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.CreateTime)
+    @Html.HiddenFor(model => model.CreatePerson)
     <table class="fromEditTable setTextWidth300">
         <tbody>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Id)：
-                </td>
-                <td style="width:310px">
-                    @Html.EditorFor(model => model.Id)
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.Id)</td>
-            </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
                     @Html.LabelFor(model => model.Name)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Name)
+                    @Html.DisplayFor(model => model.Name)
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.Name)</td>
             </tr>
-
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.ParentId)：
+                    @Html.LabelFor(model => model.Description)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.ParentId)
+                    @Html.DisplayFor(model => model.Description)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.ParentId)</td>
+                <td>@Html.ValidationMessageFor(model => model.Description)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Url)：
+                    @Html.LabelFor(model => model.UserName)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Url)
+                    @Html.DisplayFor(model => model.UserName)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Url)</td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Iconic)：
+                    @Html.LabelFor(model => model.Flag)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Iconic)
+                    @Html.DisplayFor(model => model.Flag)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Iconic)</td>
+                <td>@Html.ValidationMessageFor(model => model.Flag)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Sort)：
+                    @Html.LabelFor(model => model.CreateTime)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Sort)
+                    @Html.DisplayFor(model => model.CreateTime)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Sort)</td>
+                <td>@Html.ValidationMessageFor(model => model.CreateTime)</td>
             </tr>
             <tr>
                 <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Remark)：
+                    @Html.LabelFor(model => model.CreatePerson)：
                 </td>
                 <td style="width:310px">
-                    @Html.EditorFor(model => model.Remark)
+                    @Html.DisplayFor(model => model.CreatePerson)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Remark)</td>
+                <td>@Html.ValidationMessageFor(model => model.CreatePerson)</td>
             </tr>
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.Enable)：
-                </td>
-                <td style="width:310px">
-                    @Html.CheckBoxFor(model => model.Enable, new { @checked = true })
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.Enable)</td>
-            </tr>
-
-            <tr>
-                <td style="width:100px; text-align:right;">
-                    @Html.LabelFor(model => model.IsLast)：
-                </td>
-                <td style="width:310px">
-                    @Html.CheckBoxFor(model => model.IsLast, new { @checked = true })
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.IsLast)</td>
-            </tr>
-
         </tbody>
     </table>
 }
