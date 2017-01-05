@@ -127,12 +127,12 @@
           <Property Name="City" Type="varchar" MaxLength="200" />
           <Property Name="Village" Type="varchar" MaxLength="200" />
           <Property Name="Address" Type="varchar" MaxLength="200" />
-          <Property Name="State" Type="bit" />
-          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="State" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
           <Property Name="Sex" Type="varchar" MaxLength="10" />
-          <Property Name="Birthday" Type="datetime" />
-          <Property Name="JoinDate" Type="datetime" />
+          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="JoinDate" Type="datetime" Nullable="false" />
           <Property Name="Marital" Type="varchar" MaxLength="10" />
           <Property Name="Political" Type="varchar" MaxLength="50" />
           <Property Name="Nationality" Type="varchar" MaxLength="20" />
@@ -453,12 +453,12 @@
           <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Village" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="Boolean" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Birthday" Type="DateTime" Precision="3" />
-          <Property Name="JoinDate" Type="DateTime" Precision="3" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="JoinDate" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Marital" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Political" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />

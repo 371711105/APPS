@@ -69,6 +69,7 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -202,6 +203,7 @@
     <Compile Include="Controllers\SysRightController.cs" />
     <Compile Include="Controllers\SysRoleController.cs" />
     <Compile Include="Controllers\SysSampleController.cs" />
+    <Compile Include="Controllers\SysUserController.cs" />
     <Compile Include="Controllers\VerifyController.cs" />
     <Compile Include="Core\BaseController.cs" />
     <Compile Include="Core\ExtendMvcHtml.cs" />
@@ -776,6 +778,9 @@
     <Content Include="Views\SysRole\Details.cshtml" />
     <Content Include="Views\SysRole\Create.cshtml" />
     <Content Include="Views\SysRight\Index.cshtml" />
+    <Content Include="Views\SysUser\Index.cshtml" />
+    <Content Include="Views\SysUser\Create.cshtml" />
+    <Content Include="Views\SysUser\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -819,6 +824,17 @@
       <Project>{a43e68dc-32ec-49cd-9778-1e39c2a5b31e}</Project>
       <Name>Apps.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AdHocReportingExcelClientLib">
+      <Guid>{8E47F3A2-81A4-468E-A401-E1DEBBAE2D8D}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

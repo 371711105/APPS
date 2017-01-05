@@ -47,6 +47,9 @@ namespace Apps.Core
             container.RegisterType<ISysUserBLL, SysUserBLL>();
             container.RegisterType<ISysRightRepository, SysRightRepository>();
 
+            //container.RegisterType<ISysUserBLL, SysUserBLL>();
+            //container.RegisterType<ISysUserRepository, SysUserRepository>();
+
             container.RegisterType<ISysRoleBLL, SysRoleBLL>();
             container.RegisterType<ISysRoleRepository, SysRoleRepository>();
 

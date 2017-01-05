@@ -63,6 +63,7 @@
     <Compile Include="SysRightRepository.cs" />
     <Compile Include="SysRoleRepository.cs" />
     <Compile Include="SysSampleRepository.cs" />
+    <Compile Include="SysUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apps.IDAL\Apps.IDAL.csproj">

@@ -34,12 +34,12 @@ namespace Apps.Models
         public string City { get; set; }
         public string Village { get; set; }
         public string Address { get; set; }
-        public Nullable<bool> State { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
+        public bool State { get; set; }
+        public System.DateTime CreateTime { get; set; }
         public string CreatePerson { get; set; }
         public string Sex { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
-        public Nullable<System.DateTime> JoinDate { get; set; }
+        public System.DateTime Birthday { get; set; }
+        public System.DateTime JoinDate { get; set; }
         public string Marital { get; set; }
         public string Political { get; set; }
         public string Nationality { get; set; }
