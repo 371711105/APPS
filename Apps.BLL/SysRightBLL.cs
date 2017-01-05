@@ -19,10 +19,18 @@ using System.Threading.Tasks;
 
 namespace Apps.BLL
 {
-    public class SysRightBLL : ISysRightBLL
+    public class SysRightBLL : ISysRightBLL, IDisposable
     {
         [Dependency]
-        public ISysRightRepository SysRightRepository { get; set; }
+        public ISysRightRepository sysRightRepository { get; set; }
+        public List<PermModel> GetPermission(string accountid, string controller)
+        {
+            return sysRightRepository.GetPermission(accountid, controller);
+        }
+        public void Dispose()
+        {
+
+        }
         public bool UpdateRight(SysRightOperateModel model)
         {
             try
@@ -37,7 +45,7 @@ namespace Apps.BLL
                 entity.KeyCode = model.KeyCode;
                 entity.RightId = model.RightId;
 
-                if (SysRightRepository.UpdateRight(entity) == 1)
+                if (sysRightRepository.UpdateRight(entity) == 1)
                 {
                     return true;
                 }
@@ -53,7 +61,7 @@ namespace Apps.BLL
         }
         public List<P_Sys_GetRightByRoleAndModule_Result> GetRightByRoleAndModule(string roleId, string moduleId)
         {
-            return SysRightRepository.GetRightByRoleAndModule(roleId, moduleId);
+            return sysRightRepository.GetRightByRoleAndModule(roleId, moduleId);
         }
     }
 }

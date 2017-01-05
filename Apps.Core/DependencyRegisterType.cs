@@ -44,11 +44,11 @@ namespace Apps.Core
             container.RegisterType<ISysModuleOperateBLL, SysModuleOperateBLL>();
             container.RegisterType<ISysModuleOperateRepository, SysModuleOperateRepository>();
 
-            container.RegisterType<ISysUserBLL, SysUserBLL>();
-            container.RegisterType<ISysRightRepository, SysRightRepository>();
-
             //container.RegisterType<ISysUserBLL, SysUserBLL>();
-            //container.RegisterType<ISysUserRepository, SysUserRepository>();
+            //container.RegisterType<ISysRightRepository, SysRightRepository>();
+
+            container.RegisterType<ISysUserBLL, SysUserBLL>();
+            container.RegisterType<ISysUserRepository, SysUserRepository>();
 
             container.RegisterType<ISysRoleBLL, SysRoleBLL>();
             container.RegisterType<ISysRoleRepository, SysRoleRepository>();

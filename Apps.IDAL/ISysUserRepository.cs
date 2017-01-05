@@ -1,14 +1,20 @@
-﻿/**
+﻿
+using Apps.Models;
+/**
 * 命名空间: Apps.IDAL
 * 功 能： N/A
-* 类 名： Class1
-* 创建时间： 2017/1/5 22:01:56 
+* 类 名： ISysUserRepository
+* 创建时间： 2017/1/6 0:29:29 
 * 创建人：小强
 * 电子邮箱：371711105@qq.com
 */
-using Apps.Models;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-namespace App.IDAL
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Apps.IDAL
 {
     public interface ISysUserRepository
     {

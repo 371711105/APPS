@@ -18,6 +18,7 @@ namespace Apps.BLL
 {
     public interface ISysRightBLL
     {
+        List<PermModel> GetPermission(string accountid, string controller);
         bool UpdateRight(SysRightOperateModel model);
         List<P_Sys_GetRightByRoleAndModule_Result> GetRightByRoleAndModule(string roleId, string moduleId);
     }

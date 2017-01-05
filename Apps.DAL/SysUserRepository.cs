@@ -10,7 +10,7 @@ using System;
 using System.Linq;
 using Apps.Models;
 using System.Data;
-using App.IDAL;
+using Apps.IDAL;
 using System.Data.Entity;
 
 namespace Apps.DAL

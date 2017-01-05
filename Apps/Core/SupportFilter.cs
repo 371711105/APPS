@@ -98,12 +98,12 @@ namespace Apps.Core
                 perm = (List<PermModel>)HttpContext.Current.Session[filePath];
                 if (perm == null)
                 {
-                    using (SysUserBLL userBLL = new SysUserBLL()
+                    using (SysRightBLL rightBLL = new SysRightBLL()
                     {
                         sysRightRepository = new SysRightRepository()
                     })
                     {
-                        perm = userBLL.GetPermission(account.Id, controller);//获取当前用户的权限列表
+                        perm = rightBLL.GetPermission(account.Id, controller);//获取当前用户的权限列表
                         HttpContext.Current.Session[filePath] = perm;//获取的劝降放入会话由Controller调用
                     }
                 }

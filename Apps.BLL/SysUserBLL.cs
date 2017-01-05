@@ -1,6 +1,4 @@
-﻿
-using App.IDAL;
-using Apps.BLL.Core;
+﻿using Apps.BLL.Core;
 using Apps.Common;
 using Apps.IBLL;
 using Apps.IDAL;
@@ -24,21 +22,21 @@ using System.Transactions;
 
 namespace Apps.BLL
 {
-    public class SysUserBLL : BaseBLL, ISysUserBLL, IDisposable
+    public class SysUserBLL : BaseBLL, ISysUserBLL
     {
         DBContainer db = new DBContainer();
-        [Dependency]
-        public ISysRightRepository sysRightRepository { get; set; }
+        //[Dependency]
+        //public ISysRightRepository sysRightRepository { get; set; }
         [Dependency]
         public ISysUserRepository m_Rep { get; set; }
-        public List<PermModel> GetPermission(string accountid, string controller)
-        {
-            return sysRightRepository.GetPermission(accountid, controller);
-        }
-        public void Dispose()
-        {
+        //public List<PermModel> GetPermission(string accountid, string controller)
+        //{
+        //    return sysRightRepository.GetPermission(accountid, controller);
+        //}
+        //public void Dispose()
+        //{
 
-        }
+        //}
         public List<SysUserModel> GetList(ref GridPager pager, string queryStr)
         {
 
