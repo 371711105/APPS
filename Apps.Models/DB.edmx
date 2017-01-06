@@ -244,6 +244,9 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="P_Sys_ClearUnusedRightOperate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="P_Sys_DeleteSysRoleSysUserByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="P_Sys_GetRightByRoleAndModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="roleId" Type="varchar" Mode="In" />
           <Parameter Name="moduleId" Type="varchar" Mode="In" />
@@ -252,10 +255,17 @@
           <Parameter Name="userId" Type="varchar" Mode="In" />
           <Parameter Name="url" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="P_Sys_GetRoleByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="P_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="moduleId" Type="varchar" Mode="In" />
           <Parameter Name="roleId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="P_Sys_UpdateSysRoleSysUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="roleId" Type="varchar" Mode="In" />
+          <Parameter Name="userId" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="DBStoreContainer">
           <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
@@ -348,6 +358,16 @@
           <FunctionImport Name="P_Sys_UpdateSysRightRightFlag">
             <Parameter Name="moduleId" Mode="In" Type="String" />
             <Parameter Name="roleId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="P_Sys_GetRoleByUserId" ReturnType="Collection(DB.P_Sys_GetRoleByUserId_Result)">
+          <Parameter Name="UserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="P_Sys_UpdateSysRoleSysUser">
+            <Parameter Name="roleId" Mode="In" Type="String" />
+            <Parameter Name="userId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="P_Sys_DeleteSysRoleSysUserByUserId">
+          <Parameter Name="userId" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="SysSample">
@@ -581,6 +601,16 @@
           <Property Type="Int32" Name="Sort" Nullable="false" />
           <Property Type="String" Name="RightId" Nullable="true" MaxLength="100" />
         </ComplexType>
+        <ComplexType Name="P_Sys_GetRoleByUserId_Result">
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="4000" />
+          <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CreatePerson" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Flag" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="flag1" Nullable="false" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -764,6 +794,22 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="P_Sys_UpdateSysRightRightFlag" FunctionName="DB.Store.P_Sys_UpdateSysRightRightFlag" />
+          <FunctionImportMapping FunctionImportName="P_Sys_GetRoleByUserId" FunctionName="DB.Store.P_Sys_GetRoleByUserId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB.P_Sys_GetRoleByUserId_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="flag1" ColumnName="flag1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="P_Sys_UpdateSysRoleSysUser" FunctionName="DB.Store.P_Sys_UpdateSysRoleSysUser" />
+          <FunctionImportMapping FunctionImportName="P_Sys_DeleteSysRoleSysUserByUserId" FunctionName="DB.Store.P_Sys_DeleteSysRoleSysUserByUserId" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

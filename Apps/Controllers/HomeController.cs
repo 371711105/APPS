@@ -17,10 +17,10 @@ namespace Apps.Controllers
 
         public ActionResult Index()
         {
-            AccountModel account = new AccountModel();
-            account.Id = "admin";
-            account.TrueName = "admin";
-            Session["Account"] = account;
+            //AccountModel account = new AccountModel();
+            //account.Id = "admin";
+            //account.TrueName = "admin";
+            //Session["Account"] = account;
             return View();
         }
 

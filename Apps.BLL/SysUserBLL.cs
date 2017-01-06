@@ -25,18 +25,10 @@ namespace Apps.BLL
     public class SysUserBLL : BaseBLL, ISysUserBLL
     {
         DBContainer db = new DBContainer();
-        //[Dependency]
-        //public ISysRightRepository sysRightRepository { get; set; }
+
         [Dependency]
         public ISysUserRepository m_Rep { get; set; }
-        //public List<PermModel> GetPermission(string accountid, string controller)
-        //{
-        //    return sysRightRepository.GetPermission(accountid, controller);
-        //}
-        //public void Dispose()
-        //{
 
-        //}
         public List<SysUserModel> GetList(ref GridPager pager, string queryStr)
         {
 
@@ -330,6 +322,29 @@ namespace Apps.BLL
         public bool IsExist(string id)
         {
             return m_Rep.IsExist(id);
+        }
+
+        public IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId(ref GridPager pager, string userId)
+        {
+            IQueryable<P_Sys_GetRoleByUserId_Result> queryData = m_Rep.GetRoleByUserId(db, userId);
+            pager.totalRows = queryData.Count();
+            queryData = m_Rep.GetRoleByUserId(db, userId);
+            return queryData.Skip((pager.page - 1) * pager.rows).Take(pager.rows);
+        }
+        public bool UpdateSysRoleSysUser(string userId, string[] roleIds)
+        {
+            try
+            {
+                m_Rep.UpdateSysRoleSysUser(userId, roleIds);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                ExceptionHander.WriteException(ex);
+                return false;
+            }
+
         }
     }
 }

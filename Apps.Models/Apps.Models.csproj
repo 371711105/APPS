@@ -85,6 +85,9 @@
     <Compile Include="P_Sys_GetRightByRoleAndModule_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="P_Sys_GetRoleByUserId_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sys\SysUserModel.cs" />
     <Compile Include="Sys\SysRightModelByRoleAndModuleModel.cs" />
     <Compile Include="Sys\PermModel.cs" />

@@ -25,5 +25,7 @@ namespace Apps.IDAL
         int Edit(SysUser entity);
         SysUser GetById(string id);
         bool IsExist(string id);
+        IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId(DBContainer db, string userId);
+        void UpdateSysRoleSysUser(string userId, string[] roleIds);
     }
 }

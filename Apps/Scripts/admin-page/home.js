@@ -126,7 +126,7 @@ $(function () {
         showcheck: false,
         url: "/Home/GetTree",
         onnodeclick: function (item) {
-            debugger;
+            //debugger;
             var tabTitle = item.text;
             var url = "../../" + item.value;
             var icon = item.Icon;

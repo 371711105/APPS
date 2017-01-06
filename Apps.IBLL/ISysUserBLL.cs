@@ -7,8 +7,10 @@
 * 电子邮箱：371711105@qq.com
 */
 using Apps.Common;
+using Apps.Models;
 using Apps.Models.Sys;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Apps.IBLL
 {
@@ -22,5 +24,7 @@ namespace Apps.IBLL
         bool Edit(ref ValidationErrors errors, SysUserModel model);
         SysUserModel GetById(string id);
         bool IsExist(string id);
+        IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId(ref GridPager pager, string userId);
+        bool UpdateSysRoleSysUser(string userId, string[] roleIds);
     }
 }

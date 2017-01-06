@@ -15,6 +15,7 @@
 <script type="text/javascript">
     $(function () {
         $("#btnSave").click(function () {
+            debugger;
             if ($("form").valid()) {
                 $.ajax({
                     url: "@Url.Action("Create")",

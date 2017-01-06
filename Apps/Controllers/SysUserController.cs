@@ -18,6 +18,7 @@ namespace Apps.Controllers
         ValidationErrors errors = new ValidationErrors();
         public ActionResult Index()
         {
+            ViewBag.Perm = GetPermission();
             return View();
         }
         [HttpPost]
@@ -181,6 +182,7 @@ namespace Apps.Controllers
 
         }
         #endregion
+
         #region 导出到PDF EXCEL WORD
         public ActionResult Reporting(string type = "PDF", string queryStr = "", int rows = 0, int page = 1)
         {
@@ -233,5 +235,57 @@ namespace Apps.Controllers
             return File(renderedBytes, mimeType);
         }
         #endregion
+
+        #region 设置用户角色
+        [SupportFilter(ActionName = "Allot")]
+        public ActionResult GetRoleByUser(string userId)
+        {
+            ViewBag.UserId = userId;
+            ViewBag.Perm = GetPermission();
+            return View();
+        }
+
+        [SupportFilter(ActionName = "Allot")]
+        public JsonResult GetRoleListByUser(GridPager pager, string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+                return Json(0);
+            var userList = m_BLL.GetRoleByUserId(ref pager, userId);
+            var jsonData = new
+            {
+                total = pager.totalRows,
+                rows = (
+                    from r in userList
+                    select new SysRoleModel()
+                    {
+                        Id = r.Id,
+                        Name = r.Name,
+                        Description = r.Description,
+                        Flag = r.Flag == "0" ? "0" : "1",
+                    }
+                ).ToArray()
+            };
+            return Json(jsonData);
+        }
+        #endregion
+        [SupportFilter(ActionName = "Save")]
+        public JsonResult UpdateUserRoleByUserId(string userId, string roleIds)
+        {
+            string[] arr = roleIds.Split(',');
+
+
+            if (m_BLL.UpdateSysRoleSysUser(userId, arr))
+            {
+                LogHandler.WriteServiceLog(GetUserId(), "Ids:" + roleIds, "成功", "分配角色", "用户设置");
+                return Json(JsonHandler.CreateMessage(1, Suggestion.SetSucceed), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                string ErrorCol = errors.Error;
+                LogHandler.WriteServiceLog(GetUserId(), "Ids:" + roleIds, "失败", "分配角色", "用户设置");
+                return Json(JsonHandler.CreateMessage(0, Suggestion.SetFail), JsonRequestBehavior.AllowGet);
+            }
+
+        }
     }
 }
