@@ -261,7 +261,7 @@ namespace Apps.Controllers
                         Id = r.Id,
                         Name = r.Name,
                         Description = r.Description,
-                        Flag = r.Flag == "0" ? "0" : "1",
+                        Flag = r.flag1 == "0" ? "0" : "1",
                     }
                 ).ToArray()
             };
