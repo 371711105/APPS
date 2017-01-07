@@ -87,6 +87,7 @@ namespace Apps.Controllers
         {
             model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
+            model.Password = ValueConvert.MD5(model.Password);
             if (model != null && ModelState.IsValid)
             {
 
