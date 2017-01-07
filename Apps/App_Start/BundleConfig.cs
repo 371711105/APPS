@@ -32,6 +32,7 @@ namespace Apps
 
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                        "~/Scripts/jquery.easyui-1.4.5.js",
+                        "~/Scripts/locale/easyui-lang-zh_CN.js",
                        "~/Scripts/jquery.easyui.plus.js"));
 
             //jquery plus
