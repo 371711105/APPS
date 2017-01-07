@@ -16,32 +16,35 @@ namespace Apps
 
             // 使用要用于开发和学习的 Modernizr 的开发版本。然后，当你做好
             // 生产准备时，请使用 http://modernizr.com 上的生成工具来仅选择所需的测试。
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                        "~/Scripts/modernizr-*"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-            //          "~/Scripts/bootstrap.js",
-            //          "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/respond.js"));
 
-            //bundles.Add(new StyleBundle("~/Content/css").Include(
-            //          "~/Content/bootstrap.css",
-            //          "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css",
+                      "~/Content/responsive.css",
                       "~/Content/tree/css/tree.css"));
-
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                        "~/Scripts/jquery.easyui-1.4.5.js",
-                        "~/Scripts/locale/easyui-lang-zh_CN.js",
-                       "~/Scripts/jquery.easyui.plus.js"));
+                        "~/Scripts/locale/easyui-lang-zh_CN.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
+            //           "~/Scripts/jquery.easyui-1.4.5.js",
+            //            "~/Scripts/locale/easyui-lang-zh_CN.js",
+            //           "~/Scripts/jquery.easyui.plus.js"));
 
             //jquery plus
             bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
-                       "~/Scripts/jquery.form.js",
-                       "~/Scripts/jquery.validate.js",
-                       "~/Scripts/jquery.validate.unobtrusive.js",
-                       "~/Scripts/jquery.unobtrusive-ajax.js",
                        "~/Scripts/jquery.tree.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
+            //           "~/Scripts/jquery.form.js",
+            //           "~/Scripts/jquery.validate.js",
+            //           "~/Scripts/jquery.validate.unobtrusive.js",
+            //           "~/Scripts/jquery.unobtrusive-ajax.js",
+            //           "~/Scripts/jquery.tree.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                        "~/Scripts/admin-page/home.js"));

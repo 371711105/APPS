@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/themes/bootstrap/css")
+</head>
+<body class="page-header-fixed">
+    @*页头*@
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+        <div class="header-inner">
+            <a class="navbar-brand" href="index">
+                LOGO
+            </a>
+            <a href="javascript:;" class="navbar-toggle collapsed">
+                <img src="~/Content/Images/theme/menu-toggler.png" />
+            </a>
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img src="~/Content/Images/theme/avatar1_small.jpg" />
+                        <span class="username">
+                            admin
+                        </span>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">退出</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-container">
+        @*菜单栏*@
+        <div class="page-sidebar-wrapper">
+            <div id="menuBox" class="page-sidebar navbar-collapse collapse">
+                <div id="RightTree">
+                    菜单加载中...
+                </div>
+            </div>
+        </div>
+        @*内容*@
+        <div class="page-content-wrapper">
+            <div class="page-content" style="background-color:#0094ff">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-inner">
+            &copy; @DateTime.Now.Year - 管理系统
+        </div>
+        <div class="footer-tools">
+            <span class="go-top">
+                <i class="glyphicon glyphicon-chevron-up"></i>
+            </span>
+            @*<span class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </span>*@
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/easyui")
+    @Scripts.Render("~/bundles/jquery/plus")
+    <script>
+        $(document).ready(function () {
+            //获取菜单
+            var o = {
+                showcheck: false,
+                url: "/Home/GetTree",
+                onnodeclick: function (item) {
+                    var tabTitle = item.text;
+                    var url = "../../" + item.value;
+                    var icon = item.Icon;
+                    if (!item.hasChildren) {
+                        addTab(tabTitle, url, icon);
+                    } else {
+                        $(this).parent().find("img").trigger("click");
+                    }
+                }
+            }
+            $.post("/Home/GetTree", { "id": "0" },
+                function (data) {
+                    if (data == "0") {
+                        window.location = "/Account";
+                    }
+                    o.data = data;
+                    $("#RightTree").treeview(o);
+                }, "json");
+            debugger;
+            //汉堡菜单栏按钮点击事件
+            var $menuBox = $("#menuBox");
+            $(".navbar-toggle").click(function () {
+                if ($(".navbar-collapse").hasClass("collapse")) {
+                    $menuBox.removeClass("collapse").addClass("in");
+                }
+                else {
+                    $menuBox.removeClass(" in").addClass("collapse");
+
+                }
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

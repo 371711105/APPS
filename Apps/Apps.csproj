@@ -223,8 +223,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\default.css" />
     <Content Include="Content\Images\account.jpg" />
     <Content Include="Content\Images\arrow.gif" />
     <Content Include="Content\Images\Article\icon_arrow_blue.gif" />
@@ -281,6 +284,8 @@
     <Content Include="Content\Images\tools.png" />
     <Content Include="Content\Images\tools_bg.gif" />
     <Content Include="Content\Images\upfile_bg.gif" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\Site - 复制.css" />
     <Content Include="Content\themes\black\accordion.css" />
     <Content Include="Content\themes\black\calendar.css" />
     <Content Include="Content\themes\black\combo.css" />
@@ -620,14 +625,22 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\admin-page\home.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\themes\material\images\Thumbs.db" />
     <Content Include="Content\Images\Logo.psd" />
     <Content Include="Content\Images\sunny\Logo.psd" />
     <Content Include="Content\Images\sunny\未标题-1.psd" />
     <Content Include="Core\verify_code.ashx" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\easyloader.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
@@ -783,6 +796,8 @@
     <Content Include="Views\SysUser\Edit.cshtml" />
     <Content Include="Views\SysUser\GetRoleByUser.cshtml" />
     <Content Include="Views\SysRole\GetUserByRole.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index - 复制.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -791,9 +806,6 @@
     <Folder Include="Views\Verify\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
