@@ -116,5 +116,23 @@ namespace Apps.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_DeleteSysRoleSysUserByUserId", userIdParameter);
         }
+    
+        public virtual int P_Sys_DeleteSysRoleSysUserByRoleId(string roleId)
+        {
+            var roleIdParameter = roleId != null ?
+                new ObjectParameter("roleId", roleId) :
+                new ObjectParameter("roleId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_DeleteSysRoleSysUserByRoleId", roleIdParameter);
+        }
+    
+        public virtual ObjectResult<P_Sys_GetUserByRoleId_Result> P_Sys_GetUserByRoleId(string roleId)
+        {
+            var roleIdParameter = roleId != null ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_Sys_GetUserByRoleId_Result>("P_Sys_GetUserByRoleId", roleIdParameter);
+        }
     }
 }

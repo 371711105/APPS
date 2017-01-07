@@ -10,16 +10,9 @@
 namespace Apps.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class SysUser
+    public partial class P_Sys_GetUserByRoleId_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SysUser()
-        {
-            this.SysRole = new HashSet<SysRole>();
-        }
-    
         public string Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
@@ -53,9 +46,6 @@ namespace Apps.Models
         public string JobState { get; set; }
         public string Photo { get; set; }
         public string Attach { get; set; }
-        public string Flag { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SysRole> SysRole { get; set; }
+        public string flag { get; set; }
     }
 }

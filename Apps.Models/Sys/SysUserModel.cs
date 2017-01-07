@@ -145,5 +145,9 @@ namespace Apps.Models.Sys
         [Display(Name = "附件")]
         public string Attach { get; set; }
 
+        [MaxLength(50)]
+        [Display(Name = "Flag")]
+        public string Flag { get; set; }
+
     }
 }

@@ -782,6 +782,7 @@
     <Content Include="Views\SysUser\Create.cshtml" />
     <Content Include="Views\SysUser\Edit.cshtml" />
     <Content Include="Views\SysUser\GetRoleByUser.cshtml" />
+    <Content Include="Views\SysRole\GetUserByRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
