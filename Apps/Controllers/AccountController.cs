@@ -46,5 +46,12 @@ namespace Apps.Controllers
 
             return Json(JsonHandler.CreateMessage(1, ""), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            Session["Account"] = null;
+            return Json(JsonHandler.CreateMessage(1, ""), JsonRequestBehavior.AllowGet);
+        }
     }
 }

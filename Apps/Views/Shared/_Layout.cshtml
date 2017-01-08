@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Apps.Models.Sys
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,6 +9,15 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/themes/bootstrap/css")
+    @{
+        AccountModel account = (AccountModel)Session["Account"];
+        if (account == null)
+        {
+            account = new AccountModel();
+            Response.Redirect(Url.Action("Index", "Account"));
+
+        }
+    }
 </head>
 <body class="page-header-fixed">
     @*页头*@
@@ -24,13 +34,13 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                         <img src="~/Content/Images/theme/avatar1_small.jpg" />
                         <span class="username">
-                            admin
+                            @account.TrueName
                         </span>
                         <i class="glyphicon glyphicon-chevron-down"></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">退出</a>
+                            <a id="btnLogout" href="javascript:">退出</a>
                         </li>
                     </ul>
                 </li>
@@ -48,7 +58,7 @@
         </div>
         @*内容*@
         <div class="page-content-wrapper">
-            <div class="page-content" style="background-color:#0094ff">
+            <div class="page-content">
                 @RenderBody()
             </div>
         </div>
@@ -61,16 +71,15 @@
             <span class="go-top">
                 <i class="glyphicon glyphicon-chevron-up"></i>
             </span>
-            @*<span class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </span>*@
         </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/easyui")
     @Scripts.Render("~/bundles/jquery/plus")
+    @Scripts.Render("~/bundles/layer")
     <script>
+        var baseUrl = window.location.protocol + "//" + window.location.host + "/";
         $(document).ready(function () {
             //获取菜单
             var o = {
@@ -81,7 +90,9 @@
                     var url = "../../" + item.value;
                     var icon = item.Icon;
                     if (!item.hasChildren) {
-                        addTab(tabTitle, url, icon);
+                        //addTab(tabTitle, url, icon);
+                        //console.log(item);
+                        window.location = baseUrl + item.value;
                     } else {
                         $(this).parent().find("img").trigger("click");
                     }
@@ -95,7 +106,6 @@
                     o.data = data;
                     $("#RightTree").treeview(o);
                 }, "json");
-            debugger;
             //汉堡菜单栏按钮点击事件
             var $menuBox = $("#menuBox");
             $(".navbar-toggle").click(function () {
@@ -106,6 +116,22 @@
                     $menuBox.removeClass(" in").addClass("collapse");
 
                 }
+            });
+            //退出按钮事件
+            $("#btnLogout").click(function () {
+                debugger;
+                $.ajax({
+                    url: baseUrl + "Account/Logout",
+                    dataType: "json",
+                    type: "POST",
+                    success: function (data) {
+                        //layer.alert("退出成功");
+                        window.location = baseUrl + "Account/Index";
+                    },
+                    error: function (error, xhr) {
+                        layer.alert("退出失败，请重试");
+                    }
+                });
             });
         });
     </script>

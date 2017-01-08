@@ -20,7 +20,7 @@ namespace Apps
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap.min.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -29,7 +29,7 @@ namespace Apps
                       "~/Content/responsive.css",
                       "~/Content/tree/css/tree.css"));
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
-                       "~/Scripts/jquery.easyui-1.4.5.js",
+                       "~/Scripts/jquery.easyui-1.4.5.min.js",
                         "~/Scripts/locale/easyui-lang-zh_CN.js"));
             //bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
             //           "~/Scripts/jquery.easyui-1.4.5.js",
@@ -39,6 +39,9 @@ namespace Apps
             //jquery plus
             bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
                        "~/Scripts/jquery.tree.js"));
+            bundles.Add(new ScriptBundle("~/bundles/layer").Include(
+                      "~/Scripts/layer/layer.js"));
+
             //bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
             //           "~/Scripts/jquery.form.js",
             //           "~/Scripts/jquery.validate.js",

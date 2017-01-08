@@ -9,7 +9,7 @@ namespace Apps.Controllers
         public ActionResult GetVerifyCode()
         {
             ValidateCode vCode = new ValidateCode();
-            string code = vCode.CreateValidateCode(5);
+            string code = vCode.CreateValidateCode(4);
             Session["ValidateCode"] = code;
             byte[] bytes = vCode.CreateValidateGraphic(code);
             return File(bytes, @"image/jpeg");
