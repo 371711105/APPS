@@ -1,15 +1,13 @@
 ﻿@{
-
     Layout = null;
-
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <title>系统登录</title>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/easyui")
+    <title>登录</title>
     @Styles.Render("~/Content/css")
+    <link href="~/Content/login.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
     <style type="text/css">
         body {
             letter-spacing: 1px;
@@ -30,32 +28,137 @@
                 line-height: 24px;
             }
     </style>
-    <script type="text/javascript">
+
+</head>
+<body class="login">
+    <div class="logo">
+        LOGO
+    </div>
+    <div class="content">
+        <form id="loginForm" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <h3>欢迎登录</h3>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="UserName" id="UserName" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="password" class="form-control" id="Password" name="Password" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" style="width: 80px; float: left;" id="Code" name="Code" placeholder="验证码">
+                    <img id="codeImg" alt="刷新验证码！" style="cursor: pointer;height: 34px; margin: 0 5px; float: left;" src="~/Verify/GetVerifyCode" onclick="this.src=this.src+'?'" />
+                    <a style="float: left; margin-top: 6px;" href="javascript:$('#codeImg').trigger('click')">看不清？</a>
+                </div>
+                <div class="col-sm-12 code-error">
+
+                </div>
+            </div>
+            <div id="sError" style="display:none;" class="alert alert-danger" role="alert">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" id="btnLogin" class="btn btn-primary pull-right">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="copyright">
+        &copy; @DateTime.Now.Year - 管理系统
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery/validate")
+    <script>
         $(function () {
-            $("#LoginSys").click(function () {
-                LoginSys();
+            var $loginForm = $("#loginForm");
+            $loginForm.validate({
+                errorPlacement: function (error, element) {
+                    if (element.attr("id") == "Code") {
+                        error.appendTo($(".code-error"));
+                    }
+                    else {
+                        error.appendTo(element.parent());
+                    }
+                },
+                debug: true,
+                rules: {
+                    UserName: {
+                        required: true
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 16
+                    },
+                    Code: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 4
+                    }
+                },
+                submitHandler: function (form) {
+                    console.log($(form).serialize());
+                    login($(form).serialize());
+                }
             });
+
             $("#UserName").keydown(function (e) {
                 var curkey = e.which;
                 if (curkey == 13) {
-                    LoginSys();
+                    clickLogin();
                     return false;
                 }
             });
             $("#Password").keydown(function (e) {
                 var curkey = e.which;
                 if (curkey == 13) {
-                    LoginSys();
+                    clickLogin();
                     return false;
                 }
             });
-            $("#ValidateCode").keydown(function (e) {
+            $("#Code").keydown(function (e) {
                 var curkey = e.which;
                 if (curkey == 13) {
-                    LoginSys();
+                    clickLogin();
                     return false;
                 }
             });
+
+            //触发登录按钮
+            function clickLogin() {
+                $("#btnLogin").trigger("click");
+            }
+
+            //登录AJAX
+            function login(postData) {
+                $.post('/Account/Login', postData,
+            function (data) {
+                if (data.type == "1") {
+                    window.location = "/Home/Index"
+                } else {
+                    $("#sError").show();
+                    $("#sError").html(data.message);
+                }
+            }, "json");
+            };
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#LoginSys").click(function () {
+                LoginSys();
+            });
+
 
 
 
@@ -97,89 +200,5 @@
         }
 
     </script>
-</head>
-<body>
-
-    <div>
-        <div class="define-head" style="height: 67px;">
-            <div class="define-logo">
-                <div id="LoginTopLine">YmNets.cnblogs.com</div>
-                <div id="LoginBotoomLine">MVC4+EF5.0+EasyUI</div>
-            </div>
-
-        </div>
-    </div>
-    <div style="margin: 0 auto; margin-top: 100px; width: 800px;">
-        <table style="width: 800px; margin: 0 auto;">
-            <tr>
-                <td><img src="/Content/Images/account.jpg"></td>
-                <td style="width: 310px;">
-
-                    <table id="LoginTb" style="margin-top: 10px; background: #fff; width: 100%; height: 230px; border: 1px #ccc solid;">
-                        <tr>
-                            <td colspan="2" style="font-size: 18px;  font-weight: bold; padding: 5px 20px;">
-                                欢迎登录
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td style="width: 80px; text-align: right">
-                                用户名：
-                            </td>
-                            <td>
-                                <input id="UserName" name="UserName" type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 80px; text-align: right;">
-                                密 码：
-                            </td>
-                            <td>
-                                <input id="Password" name="Password" type="password" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="width: 80px; text-align: right">
-                                验证码：
-                            </td>
-                            <td>
-                                <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
-                                <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="~/Verify/GetVerifyCode" onclick="this.src=this.src+'?'" />
-                                <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
-                            </td>
-                        </tr>
-
-
-                        <tr>
-
-                            <td colspan="2">
-                                <table style="width: 100%;">
-                                    <tr>
-                                        <td style="width:40px;">&nbsp;</td>
-                                        <td>
-                                            <div id="mes" class="field-validation-error">
-                                            </div>
-                                            <div id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></div>
-                                        </td>
-                                        <td style="width: 100px;">
-                                            <a id="LoginSys" href="javascript:void(0)" class="easyui-linkbutton l-btn"><span class="l-btn-left"><span class="l-btn-text icon-ok" style="padding-left: 20px;">登录</span></span></a>
-                                        </td>
-                                    </tr>
-
-                                </table>
-
-                            </td>
-                        </tr>
-
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-    </div>
-    <div style="background:#f1f1f1; height:40px; width:100%; text-align:center; line-height:40px;border-top:1px #ccc solid;bottom:0; position:absolute">
-        Copyright ymnet2010-2013
-    </div>
 </body>
 </html>

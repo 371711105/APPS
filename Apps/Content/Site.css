@@ -19,7 +19,11 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 300px;
+}
+
+.error {
+    color: #a94442;
 }
 
 .page-header-fixed .page-container {

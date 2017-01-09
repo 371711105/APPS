@@ -41,6 +41,9 @@ namespace Apps
                        "~/Scripts/jquery.tree.js"));
             bundles.Add(new ScriptBundle("~/bundles/layer").Include(
                       "~/Scripts/layer/layer.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery/validate").Include(
+                      "~/Scripts/jquery.validate.min.js",
+                      "~/Scripts/messages_zh.js"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
             //           "~/Scripts/jquery.form.js",

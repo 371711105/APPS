@@ -286,6 +286,7 @@
     <Content Include="Content\Images\tools.png" />
     <Content Include="Content\Images\tools_bg.gif" />
     <Content Include="Content\Images\upfile_bg.gif" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="Content\Site - 复制.css" />
     <Content Include="Content\themes\black\accordion.css" />
@@ -793,6 +794,7 @@
     <Content Include="Scripts\locale\easyui-lang-tr.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_TW.js" />
+    <Content Include="Scripts\messages_zh.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -876,8 +878,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\SysSample\Index.cshtml" />
     <Content Include="Views\Shared\_Index_Layout.cshtml" />
