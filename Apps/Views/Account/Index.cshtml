@@ -7,28 +7,7 @@
     <title>登录</title>
     @Styles.Render("~/Content/css")
     <link href="~/Content/login.css" rel="stylesheet" />
-    @Scripts.Render("~/bundles/modernizr")
-    <style type="text/css">
-        body {
-            letter-spacing: 1px;
-            color: #444;
-        }
-
-        #LoginTb {
-            font-size: 14px;
-        }
-
-        #LoginTb {
-            font-size: 12px;
-        }
-
-            #LoginTb input {
-                width: 190px;
-                height: 24px;
-                line-height: 24px;
-            }
-    </style>
-
+    @Scripts.Render("~/bundles/modernizr")  
 </head>
 <body class="login">
     <div class="logo">
@@ -77,6 +56,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jquery/validate")
+    @Scripts.Render("~/bundles/layer")
     <script>
         $(function () {
             var $loginForm = $("#loginForm");
@@ -106,7 +86,7 @@
                     }
                 },
                 submitHandler: function (form) {
-                    console.log($(form).serialize());
+                    //console.log($(form).serialize());
                     login($(form).serialize());
                 }
             });
@@ -132,6 +112,15 @@
                     return false;
                 }
             });
+            //回车键
+            document.onkeydown = function (event_e) {
+                if (window.event)
+                    event_e = window.event;
+                var int_keycode = event_e.charCode || event_e.keyCode;
+                if (int_keycode == 13) {
+                    clickLogin();
+                }
+            }
 
             //触发登录按钮
             function clickLogin() {
@@ -140,6 +129,8 @@
 
             //登录AJAX
             function login(postData) {
+                //loading层
+                var loading = layer.load(2);
                 $.post('/Account/Login', postData,
             function (data) {
                 if (data.type == "1") {
@@ -148,57 +139,11 @@
                     $("#sError").show();
                     $("#sError").html(data.message);
                 }
+                layer.close(loading);
             }, "json");
             };
 
         });
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $("#LoginSys").click(function () {
-                LoginSys();
-            });
-
-
-
-
-        });
-
-        function LoginSys() {
-            $("#mes").html("");
-            $("#UserName").removeClass("input-validation-error");
-            $("#Password").removeClass("input-validation-error");
-            $("#ValidateCode").removeClass("input-validation-error");
-            if ($.trim($("#UserName").val()) == "") {
-                $("#UserName").addClass("input-validation-error").focus();
-                $("#mes").html("用户名不能为空！");
-                return;
-            }
-            if ($.trim($("#Password").val()) == "") {
-                $("#Password").addClass("input-validation-error").focus();
-                $("#mes").html("密码不能为空！");
-                return;
-            }
-            if ($.trim($("#ValidateCode").val()) == "") {
-                $("#ValidateCode").addClass("input-validation-error").focus();
-                $("#mes").html("验证码不能为空！");
-                return;
-            }
-            $("#Loading").show();
-
-            $.post('/Account/Login', { UserName: $("#UserName").val(), Password: $("#Password").val(), Code: $("#ValidateCode").val() },
-            function (data) {
-
-                if (data.type == "1") {
-                    window.location = "/Home/Index"
-                } else {
-                    $("#mes").html(data.message);
-                }
-                $("#Loading").hide();
-            }, "json");
-            return false;
-        }
-
     </script>
 </body>
 </html>
