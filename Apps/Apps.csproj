@@ -227,7 +227,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\default.css" />
+    <Content Include="Content\page\themes\default.css" />
     <Content Include="Content\Images\account.jpg" />
     <Content Include="Content\Images\arrow.gif" />
     <Content Include="Content\Images\Article\icon_arrow_blue.gif" />
@@ -286,7 +286,7 @@
     <Content Include="Content\Images\tools.png" />
     <Content Include="Content\Images\tools_bg.gif" />
     <Content Include="Content\Images\upfile_bg.gif" />
-    <Content Include="Content\login.css" />
+    <Content Include="Content\page\login.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="Content\Site - 复制.css" />
     <Content Include="Content\themes\black\accordion.css" />
@@ -641,16 +641,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\easyloader.js" />
-    <Content Include="Scripts\jquery-1.11.3.js" />
-    <Content Include="Scripts\jquery-1.11.3.min.js" />
-    <Content Include="Scripts\jquery-1.11.3.min.map" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.form.min.js.map" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.easyui-1.4.5.js" />
     <Content Include="Scripts\jquery.easyui-1.4.5.min.js" />
@@ -878,7 +878,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\SysSample\Index.cshtml" />
     <Content Include="Views\Shared\_Index_Layout.cshtml" />
     <Content Include="Views\Shared\_Index_LayoutEdit.cshtml" />
@@ -910,6 +909,7 @@
     <Content Include="Scripts\layui\font\iconfont.eot" />
     <Content Include="Scripts\layui\font\iconfont.ttf" />
     <Content Include="Scripts\layui\font\iconfont.woff" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

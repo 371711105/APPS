@@ -1,0 +1,37 @@
+﻿body {
+    background-color: #3d3d3d !important;
+}
+
+.footer .footer-inner {
+    color: #999999;
+}
+
+.navbar-inverse .navbar-nav > li > a .username {
+    color: #ddd;
+}
+
+.bbit-tree-node a span {
+    color: #fff;
+}
+
+.bbit-tree-node {
+    color: #fff;
+    font-size: 14px;
+}
+
+.bbit-tree-node-el {
+    border-top: 1px solid #5c5c5c !important;
+    color: #ffffff !important;
+    cursor: pointer;
+}
+
+    .bbit-tree-node-el:hover,
+    .bbit-tree-node-el:active {
+        background: #303030;
+    }
+
+.bbit-tree-node .bbit-tree-selected {
+    background: #e02222 !important;
+    border-top-color: transparent !important;
+    color: #ffffff;
+}

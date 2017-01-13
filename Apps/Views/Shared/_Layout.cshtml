@@ -9,6 +9,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/themes/bootstrap/css")
+    @Styles.Render("~/Content/page/themes/default")
     @{
         AccountModel account = (AccountModel)Session["Account"];
         if (account == null)
@@ -52,7 +53,7 @@
         <div class="page-sidebar-wrapper">
             <div id="menuBox" class="page-sidebar navbar-collapse collapse">
                 <div id="RightTree">
-                    菜单加载中...
+                    <p class="text-center" style="color:#fff;">菜单加载中...</p>
                 </div>
             </div>
         </div>
@@ -87,11 +88,11 @@
                 url: "/Home/GetTree",
                 onnodeclick: function (item) {
                     var tabTitle = item.text;
-                    var url = "../../" + item.value;
+                    //var url = "../../" + item.value;
                     var icon = item.Icon;
                     if (!item.hasChildren) {
-                        //addTab(tabTitle, url, icon);
-                        //console.log(item);
+                        sessionStorage["APID"] = item.parent.id;
+                        sessionStorage["ActiveId"] = item.id;
                         window.location = baseUrl + item.value;
                     } else {
                         $(this).parent().find("img").trigger("click");
@@ -105,7 +106,16 @@
                     }
                     o.data = data;
                     $("#RightTree").treeview(o);
+                    setActiveMenu();
                 }, "json");
+
+            //根据ActiveID设置选中的菜单
+            function setActiveMenu() {
+                var elId = "#RightTree" + "_" + sessionStorage["APID"];
+                $(elId).trigger("click");
+                $(elId).removeClass("bbit-tree-selected");
+            };
+
             //汉堡菜单栏按钮点击事件
             var $menuBox = $("#menuBox");
             $(".navbar-toggle").click(function () {
@@ -119,7 +129,6 @@
             });
             //退出按钮事件
             $("#btnLogout").click(function () {
-                debugger;
                 $.ajax({
                     url: baseUrl + "Account/Logout",
                     dataType: "json",

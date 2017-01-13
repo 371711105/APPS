@@ -30,6 +30,12 @@ textarea {
     margin-top: 42px;
 }
 
+.page-content {
+    margin-top: 0px;
+    padding: 0px;
+    background-color: #fff;
+}
+/*页头*/
 .header {
     width: 100%;
     padding: 0 20px 0 20px;
@@ -97,6 +103,8 @@ textarea {
 .nav.pull-right > li > .dropdown-menu, .nav > li > .dropdown-menu.pull-right {
     right: 0;
     left: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .dropdown-menu li > a {
@@ -109,7 +117,23 @@ textarea {
     line-height: 18px;
     white-space: nowrap;
 }
+/*页头*/
+/*侧边栏*/
+.page-sidebar.navbar-collapse {
+    padding: 0;
+}
 
+.bbit-tree-node-el {
+    display: block;
+    position: relative;
+    margin: 0;
+    border: 0px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+}
+/*侧边栏*/
 .page-container {
     margin: 0px;
     padding: 0px;

@@ -138,7 +138,6 @@
         }
         //endregion
         function buildnode(nd, ht, deep, path, isend) {
-
             var nid = nd.id.replace(/[^\w]/gi, "_");
             ht.push("<li class='bbit-tree-node'>");
             ht.push("<div id='", id, "_", nid, "' tpath='", path, "' unselectable='on' title='", nd.text, "'");
@@ -148,7 +147,13 @@
                 cs.push(nd.isexpand ? "bbit-tree-node-expanded" : "bbit-tree-node-collapsed");
             }
             else {
-                cs.push("bbit-tree-node-leaf");
+                //如果当前菜单id等于当前页面的菜单ID，则表示选中
+                if (sessionStorage["ActiveId"] == nd.id) {
+                    cs.push("bbit-tree-node-leaf bbit-tree-selected");
+                }
+                else {
+                    cs.push("bbit-tree-node-leaf");
+                }
             }
             if (nd.classes) { cs.push(nd.classes); }
 
@@ -341,7 +346,7 @@
                     }
                     $(this).swapClass("bbit-tree-node-collapsed", "bbit-tree-node-expanded");
                 }
-                //if expended, collapse it
+                    //if expended, collapse it
                 else if ($(et).hasClass("bbit-tree-elbow-minus") || $(et).hasClass("bbit-tree-elbow-end-minus")) {
                     $(this).next().hide();
                     if ($(et).hasClass("bbit-tree-elbow-minus")) {
@@ -427,7 +432,7 @@
             var p = [{ name: "id", value: encodeURIComponent(node.id) }
                     , { name: "text", value: encodeURIComponent(node.text) }
                     , { name: "value", value: encodeURIComponent(node.value) }
-                    , { name: "checkstate", value: node.checkstate}];
+                    , { name: "checkstate", value: node.checkstate }];
             return p;
         }
         function bindevent() {

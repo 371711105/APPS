@@ -31,10 +31,6 @@ namespace Apps
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                        "~/Scripts/jquery.easyui-1.4.5.min.js",
                         "~/Scripts/locale/easyui-lang-zh_CN.js"));
-            //bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
-            //           "~/Scripts/jquery.easyui-1.4.5.js",
-            //            "~/Scripts/locale/easyui-lang-zh_CN.js",
-            //           "~/Scripts/jquery.easyui.plus.js"));
 
             //jquery plus
             bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
@@ -44,13 +40,6 @@ namespace Apps
             bundles.Add(new ScriptBundle("~/bundles/jquery/validate").Include(
                       "~/Scripts/jquery.validate.min.js",
                       "~/Scripts/messages_zh.js"));
-
-            //bundles.Add(new ScriptBundle("~/bundles/jquery/plus").Include(
-            //           "~/Scripts/jquery.form.js",
-            //           "~/Scripts/jquery.validate.js",
-            //           "~/Scripts/jquery.validate.unobtrusive.js",
-            //           "~/Scripts/jquery.unobtrusive-ajax.js",
-            //           "~/Scripts/jquery.tree.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                        "~/Scripts/admin-page/home.js"));
@@ -63,6 +52,8 @@ namespace Apps
             bundles.Add(new StyleBundle("~/Content/themes/material/css").Include("~/Content/themes/material/easyui.css"));
             bundles.Add(new StyleBundle("~/Content/themes/metro/css").Include("~/Content/themes/metro/easyui.css"));
 
+            //websit
+            bundles.Add(new StyleBundle("~/Content/page/themes/default").Include("~/Content/page/themes/default.css"));
 
         }
     }
