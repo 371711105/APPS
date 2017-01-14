@@ -35,6 +35,14 @@ textarea {
     padding: 0px;
     background-color: #fff;
 }
+
+.panel-body {
+    padding: 0;
+}
+
+.mvctool {
+    margin-bottom: 5px;
+}
 /*页头*/
 .header {
     width: 100%;
@@ -119,6 +127,19 @@ textarea {
 }
 /*页头*/
 /*侧边栏*/
+ul.bbit-tree-root {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    ul.bbit-tree-root ul,
+    ul.bbit-tree-root li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
 .page-sidebar.navbar-collapse {
     padding: 0;
 }

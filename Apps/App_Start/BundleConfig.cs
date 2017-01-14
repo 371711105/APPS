@@ -25,9 +25,11 @@ namespace Apps
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/responsive.css",
-                      "~/Content/tree/css/tree.css"));
+                      "~/Content/themes/icon.css",
+                      "~/Content/themes/color.css",
+                      "~/Content/tree/css/tree.css",
+                       "~/Content/site.css",
+                      "~/Content/responsive.css"));
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                        "~/Scripts/jquery.easyui-1.4.5.min.js",
                         "~/Scripts/locale/easyui-lang-zh_CN.js"));

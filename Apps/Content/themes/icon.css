@@ -1,3 +1,12 @@
+.icon-details{
+	background:url('icons/detail.png') no-repeat center center;
+}
+.icon-convert{
+	background:url('icons/convert.png') no-repeat center center;
+}
+.icon-delete{
+	background:url('icons/delete.png') no-repeat center center;
+}
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat center center;
 }

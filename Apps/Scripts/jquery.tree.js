@@ -147,7 +147,7 @@
                 cs.push(nd.isexpand ? "bbit-tree-node-expanded" : "bbit-tree-node-collapsed");
             }
             else {
-                //如果当前菜单id等于当前页面的菜单ID，则表示选中
+                //如果当前菜单id等于当前页面的菜单ID，则设置选中样式
                 if (sessionStorage["ActiveId"] == nd.id) {
                     cs.push("bbit-tree-node-leaf bbit-tree-selected");
                 }

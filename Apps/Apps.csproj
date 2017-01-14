@@ -496,6 +496,7 @@
     <Content Include="Content\themes\icons\cancel.png" />
     <Content Include="Content\themes\icons\clear.png" />
     <Content Include="Content\themes\icons\cut.png" />
+    <Content Include="Content\themes\icons\detail.png" />
     <Content Include="Content\themes\icons\edit_add.png" />
     <Content Include="Content\themes\icons\edit_remove.png" />
     <Content Include="Content\themes\icons\filesave.png" />

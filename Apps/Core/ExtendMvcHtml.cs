@@ -26,13 +26,14 @@ namespace Apps.Core
             if (perm.Where(a => a.KeyCode == keycode).Count() > 0)
             {
                 StringBuilder sb = new StringBuilder();
-                sb.AppendFormat("<a id=\"{0}\" style=\"float: left;\" class=\"l-btn l-btn-plain\">", id);
-                sb.AppendFormat("<span class=\"l-btn-left\"><span class=\"l-btn-text {0}\" style=\"padding-left: 20px;\">", icon);
-                sb.AppendFormat("{0}</span></span></a>", text);
-                if (hr)
-                {
-                    sb.Append("<div class=\"datagrid-btn-separator\"></div>");
-                }
+                sb.AppendFormat("<a id=\"{0}\" href=\"javascript: \" class=\"easyui-linkbutton\" iconCls=\"{1}\" plain=\"true\">{2}</a>", id, icon, text);
+                //sb.AppendFormat("<a id=\"{0}\" style=\"float: left;\" class=\"l-btn l-btn-plain\">", id);
+                //sb.AppendFormat("<span class=\"l-btn-left\"><span class=\"l-btn-text {0}\" style=\"padding-left: 20px;\">", icon);
+                //sb.AppendFormat("{0}</span></span></a>", text);
+                //if (hr)
+                //{
+                //    sb.Append("<div class=\"datagrid-btn-separator\"></div>");
+                //}
                 return new MvcHtmlString(sb.ToString());
             }
             else
@@ -53,13 +54,14 @@ namespace Apps.Core
         {
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("<a id=\"{0}\" style=\"float: left;\" class=\"l-btn l-btn-plain\">", id);
-            sb.AppendFormat("<span class=\"l-btn-left\"><span class=\"l-btn-text {0}\" style=\"padding-left: 20px;\">", icon);
-            sb.AppendFormat("{0}</span></span></a>", text);
-            if (hr)
-            {
-                sb.Append("<div class=\"datagrid-btn-separator\"></div>");
-            }
+            sb.AppendFormat("<a id=\"{0}\" href=\"javascript: \" class=\"easyui-linkbutton\" iconCls=\"{1}\" plain=\"true\">{2}</a>", id, icon, text);
+            //sb.AppendFormat("<a id=\"{0}\" style=\"float: left;\" class=\"l-btn l-btn-plain\">", id);
+            //sb.AppendFormat("<span class=\"l-btn-left\"><span class=\"l-btn-text {0}\" style=\"padding-left: 20px;\">", icon);
+            //sb.AppendFormat("{0}</span></span></a>", text);
+            //if (hr)
+            //{
+            //    sb.Append("<div class=\"datagrid-btn-separator\"></div>");
+            //}
             return new MvcHtmlString(sb.ToString());
 
         }
