@@ -5,10 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>    
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/themes/default/css")    
+    @Styles.Render("~/Content/themes/default/css")
     @Styles.Render("~/Content/page/themes/default")
     @{
         AccountModel account = (AccountModel)Session["Account"];
@@ -75,6 +75,7 @@
         </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery/validate")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/easyui")
     @Scripts.Render("~/bundles/jquery/plus")

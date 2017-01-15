@@ -38,8 +38,8 @@ namespace Apps.Models
         public System.DateTime CreateTime { get; set; }
         public string CreatePerson { get; set; }
         public string Sex { get; set; }
-        public System.DateTime Birthday { get; set; }
-        public System.DateTime JoinDate { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
+        public Nullable<System.DateTime> JoinDate { get; set; }
         public string Marital { get; set; }
         public string Political { get; set; }
         public string Nationality { get; set; }

@@ -18,5 +18,6 @@ namespace Apps.Models.Sys
     {
         public string Id { get; set; }
         public string TrueName { get; set; }
+        public string UserName { get; set; }
     }
 }

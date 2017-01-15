@@ -42,6 +42,7 @@ namespace Apps.Controllers
             AccountModel account = new AccountModel();
             account.Id = user.Id;
             account.TrueName = user.TrueName;
+            account.UserName = user.UserName;
             Session["Account"] = account;
 
             return Json(JsonHandler.CreateMessage(1, ""), JsonRequestBehavior.AllowGet);

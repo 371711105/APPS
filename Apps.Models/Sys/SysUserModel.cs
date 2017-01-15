@@ -18,27 +18,31 @@ namespace Apps.Models.Sys
     public class SysUserModel
     {
         [MaxLength(50)]
-        [Display(Name = "Id")]
+        [Display(Name = "ID")]
         public string Id { get; set; }
 
         [MaxLength(200)]
-        [Display(Name = "UserName")]
+        [Display(Name = "用户名")]
+        [Required]
         public string UserName { get; set; }
 
         [MaxLength(200)]
-        [Display(Name = "Password")]
+        [Display(Name = "密码")]
+        [Required]
         public string Password { get; set; }
 
         [MaxLength(200)]
-        [Display(Name = "TrueName")]
+        [Display(Name = "姓名")]
+        [Required]
         public string TrueName { get; set; }
 
         [MaxLength(50)]
-        [Display(Name = "Card")]
+        [Display(Name = "身份证号")]
         public string Card { get; set; }
 
         [MaxLength(200)]
-        [Display(Name = "身份证")]
+        [RegularExpression(@"\d{11}", ErrorMessage = "请输入正确的手机号码")]
+        [Display(Name = "手机号")]
         public string MobileNumber { get; set; }
 
         [MaxLength(200)]
@@ -49,8 +53,10 @@ namespace Apps.Models.Sys
         [Display(Name = "QQ")]
         public string QQ { get; set; }
 
+        [RegularExpression(@"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$", ErrorMessage = "请输入正确的邮箱地址")]
         [MaxLength(200)]
-        [Display(Name = "EmailAddress")]
+        [Display(Name = "邮箱地址")]
+        [Required]
         public string EmailAddress { get; set; }
 
         [MaxLength(200)]
@@ -73,14 +79,14 @@ namespace Apps.Models.Sys
         [Display(Name = "Address")]
         public string Address { get; set; }
 
-        [Display(Name = "State")]
+        [Display(Name = "是否启用")]
         public bool State { get; set; }
 
-        [Display(Name = "CreateTime")]
+        [Display(Name = "创建时间")]
         public DateTime CreateTime { get; set; }
 
         [MaxLength(200)]
-        [Display(Name = "CreatePerson")]
+        [Display(Name = "创建人")]
         public string CreatePerson { get; set; }
 
         [MaxLength(10)]
@@ -88,10 +94,10 @@ namespace Apps.Models.Sys
         public string Sex { get; set; }
 
         [Display(Name = "Birthday")]
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
 
         [Display(Name = "JoinDate")]
-        public DateTime JoinDate { get; set; }
+        public DateTime? JoinDate { get; set; }
 
         [MaxLength(10)]
         [Display(Name = "婚姻")]

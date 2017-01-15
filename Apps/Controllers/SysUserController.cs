@@ -85,12 +85,13 @@ namespace Apps.Controllers
         [SupportFilter]
         public JsonResult Create(SysUserModel model)
         {
+            AccountModel account = (AccountModel)Session["Account"];
             model.Id = ResultHelper.NewId;
-            model.CreateTime = ResultHelper.NowTime;
             model.Password = ValueConvert.MD5(model.Password);
+            model.CreateTime = ResultHelper.NowTime;
+            model.CreatePerson = account.UserName;
             if (model != null && ModelState.IsValid)
             {
-
                 if (m_BLL.Create(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "创建", "SysUser");

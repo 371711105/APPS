@@ -116,9 +116,9 @@
           <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="TrueName" Type="varchar" MaxLength="200" />
+          <Property Name="TrueName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Card" Type="varchar" MaxLength="50" />
-          <Property Name="MobileNumber" Type="varchar" MaxLength="200" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
           <Property Name="QQ" Type="varchar" MaxLength="50" />
           <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
@@ -129,10 +129,10 @@
           <Property Name="Address" Type="varchar" MaxLength="200" />
           <Property Name="State" Type="bit" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
-          <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+          <Property Name="CreatePerson" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Sex" Type="varchar" MaxLength="10" />
-          <Property Name="Birthday" Type="datetime" Nullable="false" />
-          <Property Name="JoinDate" Type="datetime" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="JoinDate" Type="datetime" />
           <Property Name="Marital" Type="varchar" MaxLength="10" />
           <Property Name="Political" Type="varchar" MaxLength="50" />
           <Property Name="Nationality" Type="varchar" MaxLength="20" />
@@ -140,8 +140,8 @@
           <Property Name="School" Type="varchar" MaxLength="50" />
           <Property Name="Professional" Type="varchar" MaxLength="100" />
           <Property Name="Degree" Type="varchar" MaxLength="20" />
-          <Property Name="DepId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="PosId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepId" Type="varchar" MaxLength="50" />
+          <Property Name="PosId" Type="varchar" MaxLength="50" />
           <Property Name="Expertise" Type="varchar" MaxLength="3000" />
           <Property Name="JobState" Type="varchar" MaxLength="20" />
           <Property Name="Photo" Type="varchar" MaxLength="200" />
@@ -475,9 +475,9 @@
           <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="TrueName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TrueName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MobileNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -488,10 +488,10 @@
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="State" Type="Boolean" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Birthday" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="JoinDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="JoinDate" Type="DateTime" Precision="3" />
           <Property Name="Marital" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Political" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -499,8 +499,8 @@
           <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Professional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="DepId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PosId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PosId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Expertise" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
           <Property Name="JobState" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />

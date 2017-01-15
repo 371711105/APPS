@@ -132,6 +132,7 @@ namespace Apps.BLL
                 entity.JobState = model.JobState;
                 entity.Photo = model.Photo;
                 entity.Attach = model.Attach;
+                entity.Flag = string.Empty;
                 if (m_Rep.Create(entity) == 1)
                 {
                     return true;

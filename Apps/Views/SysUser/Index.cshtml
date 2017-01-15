@@ -22,12 +22,13 @@
     @*@Html.ToolButton("btnAllot", "icon-share", "分配角色", perm, "Allot", true)*@
 </div>
 <table id="List"></table>
-<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
-@*@Html.Partial("~/Views/Shared/_Partial_AutoGrid.cshtml")*@
+<div id="modalwindow" class="easyui-window col-md-10;" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+@Html.Partial("~/Views/SysUser/Create.cshtml")
+
 @section scripts{
+    <script src="~/Scripts/admin-page/sysuser-create.js"></script>
     <script type="text/javascript">
         $(function () {
-
             //分配角色
             $("#btnAllot").click(function () {
                 var row = $('#List').datagrid('getSelected');
@@ -53,7 +54,7 @@
                 singleSelect: true,//单选模式
                 rownumbers: true,//行号
                 columns: [[
-                    { field: 'Id', title: '',  hidden: true },
+                    { field: 'Id', title: '', hidden: true },
                     { field: 'UserName', title: '用户名', width: "10%", sortable: true },
                     { field: 'Password', title: '密码', width: "10%", sortable: true },
                     { field: 'TrueName', title: '姓名', width: "10%", sortable: true },
@@ -112,8 +113,9 @@
                 $("#modalwindow").window({ title: '导出', width: 320, height: 200, iconCls: 'icon-add' }).window('open');
             });
             $("#btnCreate").click(function () {
-                $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/SysUser/Create'></iframe>");
-                $("#modalwindow").window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' }).window('open');
+                $(".modal").modal();
+                //$("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/SysUser/Create'></iframe>");
+                //$("#modalwindow").window({ title: '新增', height: "auto", iconCls: 'icon-add' }).window('open');
             });
             $("#btnEdit").click(function () {
                 var row = $('#List').datagrid('getSelected');
