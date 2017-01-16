@@ -73,6 +73,16 @@ namespace Apps.Controllers
             return Json(json);
         }
 
+        #region 检查用户名是否存在
+        [HttpPost]
+        public JsonResult IsExisted(string username)
+        {
+            bool isExisted = m_BLL.CheckExist(username);
+            return Json(!isExisted);
+        }
+        #endregion
+
+
         #region 创建
         [SupportFilter]
         public ActionResult Create()
@@ -101,12 +111,14 @@ namespace Apps.Controllers
                 {
                     string ErrorCol = errors.Error;
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失败", "创建", "SysUser");
+
                     return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
                 }
             }
             else
             {
-                return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail));
+                string error = ModelState.Values.Where(x => x.Errors.Count > 0).First().Errors[0].ErrorMessage;
+                return Json(JsonHandler.CreateMessage(0, error));
             }
         }
         #endregion

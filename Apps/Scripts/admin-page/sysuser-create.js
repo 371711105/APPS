@@ -12,7 +12,12 @@
         debug: true,
         rules: {
             UserName: {
-                required: true
+                required: true,
+                remote: {
+                    url: "/SysUser/IsExisted",     //后台处理程序
+                    type: "post",               //数据发送方式
+                    dataType: "json"           //接受数据格式                       
+                }
             },
             Password: {
                 required: true,
@@ -23,14 +28,20 @@
                 required: true
             },
             MobileNumber: {
-                required: true
+                required: true,
+                isMobileNumber: true
             },
             EmailAddress: {
                 required: true,
                 email: true
             },
             State: {
-                required: true
+                required: false
+            }
+        },
+        messages: {
+            UserName: {
+                remote: "该用户名已注册"
             }
         },
         submitHandler: function (form) {

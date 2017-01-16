@@ -24,6 +24,7 @@ namespace Apps.IBLL
         bool Edit(ref ValidationErrors errors, SysUserModel model);
         SysUserModel GetById(string id);
         bool IsExist(string id);
+        bool CheckExist(string username);
         IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId(ref GridPager pager, string userId);
         bool UpdateSysRoleSysUser(string userId, string[] roleIds);
     }

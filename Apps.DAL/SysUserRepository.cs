@@ -77,6 +77,14 @@ namespace Apps.DAL
             }
         }
 
+        public SysUser GetByUserNmae(string username)
+        {
+            using (DBContainer db = new DBContainer())
+            {
+                return db.SysUser.SingleOrDefault(a => a.UserName == username);
+            }
+        }
+
         public bool IsExist(string id)
         {
             using (DBContainer db = new DBContainer())
@@ -87,6 +95,18 @@ namespace Apps.DAL
                 return false;
             }
         }
+
+        public bool CheckExist(string username)
+        {
+            using (DBContainer db = new DBContainer())
+            {
+                SysUser entity = GetByUserNmae(username);
+                if (entity != null)
+                    return true;
+                return false;
+            }
+        }
+
         public void Dispose()
         {
 

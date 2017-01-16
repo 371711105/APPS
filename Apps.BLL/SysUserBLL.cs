@@ -325,6 +325,11 @@ namespace Apps.BLL
             return m_Rep.IsExist(id);
         }
 
+        public bool CheckExist(string username)
+        {
+            return m_Rep.CheckExist(username);
+        }
+
         public IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId(ref GridPager pager, string userId)
         {
             IQueryable<P_Sys_GetRoleByUserId_Result> queryData = m_Rep.GetRoleByUserId(db, userId);

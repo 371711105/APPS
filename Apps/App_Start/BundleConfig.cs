@@ -43,9 +43,6 @@ namespace Apps
                       "~/Scripts/jquery.validate.min.js",
                       "~/Scripts/messages_zh.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/home").Include(
-                       "~/Scripts/admin-page/home.js"));
-
             //easyui
             bundles.Add(new StyleBundle("~/Content/themes/black/css").Include("~/Content/themes/black/easyui.css"));
             bundles.Add(new StyleBundle("~/Content/themes/bootstrap/css").Include("~/Content/themes/bootstrap/easyui.css"));

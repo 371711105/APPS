@@ -31,3 +31,16 @@
     });
 
 }));
+
+
+// 邮政编码验证   
+jQuery.validator.addMethod("isZipCode", function (value, element) {
+    var tel = /^[0-9]{6}$/;
+    return this.optional(element) || (tel.test(value));
+}, "请输入有效的邮政编码");
+
+// 手机号验证   
+jQuery.validator.addMethod("isMobileNumber", function (value, element) {
+    var tel = /^1[3|5|7|8][0-9]{9}$/;
+    return this.optional(element) || (tel.test(value));
+}, "请输入有效的手机号码");

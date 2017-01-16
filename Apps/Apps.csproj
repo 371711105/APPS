@@ -628,6 +628,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\admin-page\config.js" />
     <Content Include="Scripts\admin-page\home.js" />
     <Content Include="Content\themes\material\images\Thumbs.db" />
     <Content Include="Content\Images\Logo.psd" />
