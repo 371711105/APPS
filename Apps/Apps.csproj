@@ -288,7 +288,6 @@
     <Content Include="Content\Images\upfile_bg.gif" />
     <Content Include="Content\page\login.css" />
     <Content Include="Content\responsive.css" />
-    <Content Include="Content\Site - 复制.css" />
     <Content Include="Content\themes\black\accordion.css" />
     <Content Include="Content\themes\black\calendar.css" />
     <Content Include="Content\themes\black\combo.css" />

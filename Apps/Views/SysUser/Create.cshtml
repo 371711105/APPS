@@ -1,9 +1,8 @@
 ﻿@model Apps.Models.Sys.SysUserModel
-@using Apps.Core;
 @using Apps.Models.Sys;
-
 @{
-    ViewBag.Title = "创建";
+    ViewBag.Title = "添加管理员";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     List<PermModel> perm = (List<PermModel>)ViewBag.Perm;
     if (perm == null)
     {
@@ -11,50 +10,62 @@
     }
 }
 
-<div class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <form id="formAdd" class="form-horizontal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">新增管理员</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>添加管理员</h4>
+        @Html.ActionLink("返回", "Index")
+    </div>
+    <div class="panel-body">
+        <div class="container-fluid">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName)
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password)
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TrueName)
+                        @Html.TextBoxFor(model => model.TrueName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TrueName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MobileNumber)
+                        @Html.TextBoxFor(model => model.MobileNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EmailAddress)
+                        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.CheckBoxFor(model => model.State, new { @checked = true })
+                        @Html.LabelFor(model => model.State)
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.UserName)
-                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Password)
-                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.TrueName)
-                            @Html.TextBoxFor(model => model.TrueName, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.MobileNumber)
-                            @Html.TextBoxFor(model => model.MobileNumber, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.EmailAddress)
-                            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Html.CheckBoxFor(model => model.State, new { @checked = true })
-                            @Html.LabelFor(model => model.State)
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="添加" class="btn btn-default" />
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="submit" id="btnSave" class="btn btn-primary">保存</button>
-                </div>
-            </div>
-        </form>
+            }
+        </div>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("返回", "Index")
     </div>
 </div>
 
+@section Scripts {
 
+}

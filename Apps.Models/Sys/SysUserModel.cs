@@ -26,7 +26,8 @@ namespace Apps.Models.Sys
         [Required]
         public string UserName { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(16)]
+        [MinLength(6)]
         [Display(Name = "密码")]
         [Required]
         public string Password { get; set; }

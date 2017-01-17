@@ -84,16 +84,47 @@ namespace Apps.Controllers
 
 
         #region 创建
-        [SupportFilter]
+        //[SupportFilter]
         public ActionResult Create()
         {
             ViewBag.Perm = GetPermission();
             return View();
         }
 
+        //[HttpPost]
+        //[SupportFilter]
+        //public JsonResult Create(SysUserModel model)
+        //{
+        //    AccountModel account = (AccountModel)Session["Account"];
+        //    model.Id = ResultHelper.NewId;
+        //    model.Password = ValueConvert.MD5(model.Password);
+        //    model.CreateTime = ResultHelper.NowTime;
+        //    model.CreatePerson = account.UserName;
+        //    if (model != null && ModelState.IsValid)
+        //    {
+        //        if (m_BLL.Create(ref errors, model))
+        //        {
+        //            LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "创建", "SysUser");
+        //            return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed));
+        //        }
+        //        else
+        //        {
+        //            string ErrorCol = errors.Error;
+        //            LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失败", "创建", "SysUser");
+
+        //            return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
+        //        }
+        //    }
+        //    else
+        //    {
+        //        string error = ModelState.Values.Where(x => x.Errors.Count > 0).First().Errors[0].ErrorMessage;
+        //        return Json(JsonHandler.CreateMessage(0, error));
+        //    }
+        //}
+
         [HttpPost]
-        [SupportFilter]
-        public JsonResult Create(SysUserModel model)
+        //[SupportFilter]
+        public ActionResult Create(SysUserModel model)
         {
             AccountModel account = (AccountModel)Session["Account"];
             model.Id = ResultHelper.NewId;
@@ -105,26 +136,25 @@ namespace Apps.Controllers
                 if (m_BLL.Create(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "创建", "SysUser");
-                    return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed));
+                    //return Json(JsonHandler.CreateMessage(1, Suggestion.InsertSucceed));                  
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失败", "创建", "SysUser");
 
-                    return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
+                    //return Json(JsonHandler.CreateMessage(0, Suggestion.InsertFail + ErrorCol));
+                    ModelState.AddModelError("", ErrorCol);
                 }
             }
-            else
-            {
-                string error = ModelState.Values.Where(x => x.Errors.Count > 0).First().Errors[0].ErrorMessage;
-                return Json(JsonHandler.CreateMessage(0, error));
-            }
+            return View(model);
         }
+
         #endregion
 
         #region 修改
-        [SupportFilter]
+        //[SupportFilter]
         public ActionResult Edit(string id)
         {
             ViewBag.Perm = GetPermission();
@@ -132,30 +162,52 @@ namespace Apps.Controllers
             return View(entity);
         }
 
+        //[HttpPost]
+        //[SupportFilter]
+        //public JsonResult Edit(SysUserModel model)
+        //{
+        //    if (model != null && ModelState.IsValid)
+        //    {
+
+        //        if (m_BLL.Edit(ref errors, model))
+        //        {
+        //            LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "修改", "SysUser");
+        //            return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
+        //        }
+        //        else
+        //        {
+        //            string ErrorCol = errors.Error;
+        //            LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失败", "修改", "SysUser");
+        //            return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail));
+        //    }
+        //}
         [HttpPost]
-        [SupportFilter]
-        public JsonResult Edit(SysUserModel model)
+        public ActionResult Edit(SysUserModel model)
         {
+            model.Password = ValueConvert.MD5(model.Password);
             if (model != null && ModelState.IsValid)
             {
-
                 if (m_BLL.Edit(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName, "成功", "修改", "SysUser");
-                    return Json(JsonHandler.CreateMessage(1, Suggestion.EditSucceed));
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserName" + model.UserName + "," + ErrorCol, "失败", "修改", "SysUser");
-                    return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
+                    //return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail + ErrorCol));
+                    ModelState.AddModelError("", ErrorCol);
                 }
             }
-            else
-            {
-                return Json(JsonHandler.CreateMessage(0, Suggestion.EditFail));
-            }
+            return View(model);
         }
+
         #endregion
 
         #region 详细
